@@ -1,0 +1,5 @@
+
+Prototype/node_modules/*
+Prototype/package-lock.json
+Prototype/.DS_Store
+.DS_Store

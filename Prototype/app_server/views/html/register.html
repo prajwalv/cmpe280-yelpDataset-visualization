@@ -42,7 +42,7 @@
             type="password"
             id="password"
             placeholder="password"
-            pattern="(?=.\d)(?=.[a-z])(?=.[A-Z](?=.[@#$%!]).{8,}"
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
             required
           />
           <input type="email" id="email" placeholder="email address" required />

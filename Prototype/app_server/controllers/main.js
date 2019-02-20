@@ -4,14 +4,14 @@ var map = new HashMap();
  * GET home page.
  */
 module.exports.home = function(request, result) {
-  result.render("html/index", {});
+  result.render("html/index", { message: "" });
 };
 
 /*
  * GET register page.
  */
 module.exports.get_register = function(request, result) {
-  result.render("html/register", {});
+  result.render("html/register", { message: "" });
 };
 
 /*
@@ -22,10 +22,10 @@ module.exports.post_register = function(request, result) {
   var password = request.body.password;
   var name = request.body.name;
   if (map.has(email)) {
-    result.render("html/register", { error: "Email Id already exists" });
+    result.render("html/register", { message: "Email Id already exists" });
   } else {
     map.set(email, { password: password, name: name });
-    result.render("html/index", {});
+    result.render("html/index", { message: "" });
   }
 };
 

@@ -121,3 +121,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.error {
+  color: #ef3b3a;
+  padding-top: 10;
+  font-size: 15px;
+}

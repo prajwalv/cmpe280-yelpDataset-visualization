@@ -10,7 +10,12 @@ router.get("/", ctrlMain.home);
 /*
  * GET register page.
  */
-router.get("/register", ctrlMain.register);
+router.get("/register", ctrlMain.get_register);
+
+/*
+ * POST register page.
+ */
+router.post("/register", ctrlMain.post_register);
 
 /*
  * Dashboard page

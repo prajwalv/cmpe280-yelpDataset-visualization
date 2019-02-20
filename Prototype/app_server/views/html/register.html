@@ -5,49 +5,41 @@
       function clearForm() {
         document.getElementById("registerForm").reset();
       }
-
-      function register() {
-        name = document.getElementById("name").value;
-        password = document.getElementById("password").value;
-        email = document.getElementById("email").value;
-
-        errors = "";
-
-        if (name == "") {
-          errors += "Missing name.\n";
-        }
-
-        passwordRE = "(?=.\d)(?=.[a-z])(?=.[A-Z](?=.[@#$%!]).{8,}";
-        if (!password.match(passwordRE)) {
-          errors += "Invalid password.\n";
-        }
-
-        emailRE = /^.+@.+\..{2,4}$/;
-        if (!email.match(emailRE)) {
-          errors += "Invalid email address. " + "Should be xxxxx@xxxxx.xxx\n";
-        }
-
-        if (errors != "") {
-          alert(errors);
-        }
-      }
     </script>
   </head>
   <body>
     <div class="register-page">
       <div class="form">
-        <form id="registerForm" class="register-form">
-          <input type="text" id="name" placeholder="name" required />
+        <form
+          id="registerForm"
+          class="register-form"
+          action="/register"
+          method="post"
+        >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="name"
+            required
+          />
           <input
             type="password"
             id="password"
+            name="password"
             placeholder="password"
             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
             title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number."
             required
           />
-          <input type="email" id="email" placeholder="email address" required />
-          <button onclick="register()">Register</button>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="email address"
+            required
+          />
+          <button type="submit">Register</button>
           <button onclick="clearForm()">Clear</button>
           <p class="message">Already registered? <a href="/">Login here</a></p>
         </form>

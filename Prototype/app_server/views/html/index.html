@@ -1,22 +1,30 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <div class="login-page">
-            <div class="form">
-              <form class="login-form">
-                <input type="email" placeholder="username" required/>
-                <input type="password" placeholder="password" pattern="(?=.\d)(?=.[a-z])(?=.[A-Z](?=.[@#$%!]).{8,}" required/>
-                <button onclick="onLogin()">login</button>
-                <p class="message">Not registered? <a href="/register">Create an account</a></p>
-              </form>
-            </div>
-          </div>
-          <script type="text/javascript">
-            function check(){
-                alert("Hi!")
-            }
-          </script>
-    </body>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="login-page">
+      <div class="form">
+        <form class="login-form" action="/dashboard" method="post">
+          <input type="email" name="email" placeholder="username" required />
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+            required
+          />
+          <button type="submit">login</button>
+          <p class="message">
+            Not registered? <a href="/register">Create an account</a>
+          </p>
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function check() {
+        alert("Hi!");
+      }
+    </script>
+  </body>
 </html>

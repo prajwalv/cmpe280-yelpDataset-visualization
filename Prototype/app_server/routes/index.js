@@ -1,15 +1,21 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 var ctrlMain = require("../controllers/main");
 
 /*
  * GET home page.
  */
-router.get('/', ctrlMain.home);
+router.get("/", ctrlMain.home);
 
 /*
  * GET register page.
  */
-router.get('/register', ctrlMain.register);
+router.get("/register", ctrlMain.register);
+
+/*
+ * Dashboard page
+ */
+router.post("/dashboard", ctrlMain.dashboard);
+router.get("/dashboard", ctrlMain.dashboard);
 
 module.exports = router;

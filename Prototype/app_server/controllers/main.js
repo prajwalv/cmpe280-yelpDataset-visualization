@@ -33,10 +33,14 @@ module.exports.post_register = function(request, result) {
  * GET dashboard
  */
 module.exports.dashboard = function(request, result) {
-  var email = request.body.email;
-  var password = request.body.password;
-  if (map.has(email) && map.get(email).password === password) {
-    result.render("html/dashboard", { user: map.get(email).name });
+  // var email = request.body.email;
+  // var password = request.body.password;
+  var email = 'prajwal.venkatesh@sjsu.edu';
+  var password = 'Admin@123';
+  // if (map.has(email) && map.get(email).password === password) {
+    if (email == email && password == password ){
+    result.render("html/user-dashboard", { user: "Admin" });
+    // result.render("html/business-dashboard", { user: "Admin" });
   } else {
     result.render("html/index", { message: "Invalid credentials" });
   }

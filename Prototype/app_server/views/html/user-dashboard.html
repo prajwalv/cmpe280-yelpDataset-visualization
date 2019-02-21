@@ -1,0 +1,65 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete your profile</title>
+  <link rel="stylesheet" type="text/css" href="dashboard/user-dashboard.css" />
+  <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+  <script type= "text/javascript" src = "countries.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<form action="#" method="post">
+
+  <h1>Complete your profile</h1>
+  
+  <fieldset>
+    <legend><span class="number">1</span>Your basic info</legend>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" min="1980-12-31" max="2050-12-31" required title="Must be between 1980-12-31 and 2050-12-31">
+    
+    <label>Gender:</label>
+    <input type="radio" id="gender" value="Male" name="gender" required><label for="gender" class="light">Male</label>
+    <input type="radio" id="gender" value="Female" name="gender"><label for="gender" class="light">Female</label>
+    <input type="radio" id="gender" value="Other" name="gender"><label for="gender" class="light">Other</label>
+
+    <br><br><label for="tele">Phone No:</label>
+    <input type="tel" id="tele" name="tele" placeholder="1234567890" pattern= '^[0-9]{3}[0-9]{3}[0-9]{4}$' required title="Must be of the format 1234567890" >
+
+  </fieldset>
+  
+  <fieldset>
+    <legend><span class="number">2</span>Address</legend>
+    <label for="add1">Address Line 1:</label>
+    <input type="text" id="add1" name="add1" required>
+
+    <label for="add2">Address Line 2(optional):</label>
+    <input type="text" id="add2" name="add2" title="Apt #">
+      
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required>
+    </select>
+
+    <label for="state">State:</label>
+    <select  name="state" id="state" required>
+    </select>
+
+    <label for="country">Country:</label>
+      <select name="country" id="country" required>
+      </select>
+      <script language="javascript">
+          populateCountries("country", "state");
+        </script>
+        
+      <label for="postalCode">Postal Code:</label>
+      <input type="text" id="postalCode" name="postalCode" pattern="^[0-9]{5}(?:-[0-9]{4})?$" required title="Postal code should conatin only numbers of length 5" >
+    
+  </fieldset>
+  
+ 
+  <button type="submit">Save</button>
+</form>
+
+</body>
+</html>

@@ -21,6 +21,7 @@ router.post("/register", ctrlMain.post_register);
  * Dashboard page
  */
 router.post("/dashboard", ctrlMain.dashboard);
-router.get("/dashboard", ctrlMain.dashboard);
+router.get("/user-dashboard", ctrlMain.dashboard);
+// router.get("/business-dashboard", ctrlMain.dashboard);
 
 module.exports = router;

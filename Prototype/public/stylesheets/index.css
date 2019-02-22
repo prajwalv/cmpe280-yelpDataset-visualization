@@ -2,13 +2,25 @@
 
 .login-page {
   width: 360px;
-  padding: 8% 0 0;
+  padding: 1% 0 0;
   margin: auto;
+}
+
+.title-center
+{
+text-align: center;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-weight: 400;
+color: #ffffff;
+font-size: 25px;
+-webkit-transition: all 0.3 ease;
+transition: all 0.3 ease;
+/* cursor: pointer; */
 }
 
 .register-page {
   width: 360px;
-  padding: 8% 0 0;
+  padding: 1% 0 0;
   margin: auto;
 }
 
@@ -126,4 +138,11 @@ body {
   color: #ef3b3a;
   padding-top: 10;
   font-size: 15px;
+}
+
+.logo
+{
+  margin-top: 3%;
+  text-align: center;
+  
 }

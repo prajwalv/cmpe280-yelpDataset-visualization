@@ -20,6 +20,12 @@ router.post("/register", ctrlMain.post_register);
 /*
  * Dashboard page
  */
-router.post("/dashboard", ctrlMain.dashboard);
+router.post("/login", ctrlMain.post_login);
+
+// router.get("/user-dashboard", [
+//   ctrlMain.loggedIn,
+//   ctrlMain.user_dashboard,
+//   ctrlMain.login
+// ]);
 
 module.exports = router;

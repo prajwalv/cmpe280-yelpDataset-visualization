@@ -18,6 +18,7 @@ app.use(express.static(path.join(__dirname, "public", "images")));
 app.use(session({ secret: "String for encrypting cookies." }));
 
 app.use("/", index);
-
+console.log("Server started at port 3000");
 module.exports = app;
 app.listen(3000);
+

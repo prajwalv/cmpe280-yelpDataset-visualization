@@ -20,7 +20,7 @@ router.post("/login", ctrlMain.post_login);
 /*
  * GET Logout
  */
-router.post("/logout", ctrlMain.logout);
+router.get("/logout", ctrlMain.logout);
 
 /*
  * GET register page.

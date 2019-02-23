@@ -88,7 +88,7 @@ legend {
 label {
   display: block;
   margin-bottom: 8px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 label.light {
@@ -214,4 +214,48 @@ ul{
 .title-center
 {
 text-align: center;
+}
+
+.address-card
+{
+  position: absolute;
+  color: #181b1b;
+  left: 420px;
+  top:80px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
+  padding: 40px;
+  width: 400px;
+  background: #5fcf80;
+}
+
+.address-item
+{
+  padding: 10px;
+  padding-left:20px;
+  border-radius: 3px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 5px 5px 5px 3px rgba(0, 0, 0, 0.24);
+  background:white;
+}
+
+.business-card
+{
+  position: absolute;
+  color: #181b1b;
+  left: 920px;
+  top:80px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
+  padding: 40px;
+  width: 400px;
+  background: #5fcf80;
+}
+
+.business-item
+{
+  padding: 10px;
+  padding-left:20px;
+  border-radius: 3px;
+  background:white;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }

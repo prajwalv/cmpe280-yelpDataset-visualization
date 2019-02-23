@@ -117,8 +117,6 @@ module.exports.post_user_dashboard = function(request, result) {
 
   var email = request.session.user;
   var name =  map.get(request.session.user).name;
-  var password =  map.get(request.session.user).password;
-  var role =  map.get(request.session.user).role;
   var dob = request.body.dob;
   var gender = request.body.gender;
   var tele = request.body.tele;
@@ -128,7 +126,7 @@ module.exports.post_user_dashboard = function(request, result) {
   var country = request.body.country;
   var state = request.body.state;
   var postalCode = request.body.postalCode;
-  profileMap.set(email, { name:name, password:password, role:role, dob: dob, gender: gender, tele: tele, add1: add1, add2:add2, city:city, country:country, state:state, postalCode:postalCode });
+  profileMap.set(email, { name:name, dob: dob, gender: gender, tele: tele, add1: add1, add2:add2, city:city, country:country, state:state, postalCode:postalCode });
   result.redirect("/profile"); 
 };
 
@@ -137,7 +135,7 @@ module.exports.post_user_dashboard = function(request, result) {
  */
 module.exports.get_profile= function(request, result) {
   var email = request.session.user;
-  var role = profileMap.get(email).role;
+  var role = map.get(email).role;
   if (role == "user") {
     result.render("user_profile", {email: email, profile: profileMap.get(email)});
   } else {
@@ -159,5 +157,15 @@ module.exports.get_business_dashboard = function(request, result) {
  * POST business dashboard
  */
 module.exports.post_business_dashboard = function(request, result) {
-  result.redirect("/business-dashboard");
+  var email = request.session.user;
+  var name =  map.get(request.session.user).name;
+  var add1 = request.body.add1;
+  var add2 = request.body.add2;
+  var city = request.body.city;
+  var country = request.body.country;
+  var state = request.body.state;
+  var postalCode = request.body.postalCode;
+  var cuisine = request.body.cuisine;
+  profileMap.set(email, { name:name, add1: add1, add2:add2, city:city, country:country, state:state, postalCode:postalCode, cuisine:cuisine });
+  result.redirect("/profile");
 };

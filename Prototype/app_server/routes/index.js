@@ -61,4 +61,12 @@ router.post("/business-dashboard", [
   ctrlMain.post_business_dashboard
 ]);
 
+/*
+ * GET profile page.
+ */
+router.get("/profile", [
+    ctrlMain.loggedIn,
+    ctrlMain.get_profile
+  ]);
+  
 module.exports = router;

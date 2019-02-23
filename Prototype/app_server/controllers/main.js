@@ -1,5 +1,6 @@
 var HashMap = require("hashmap");
 var map = new HashMap();
+var profileMap = new Map(); 
 /*
  * GET home page.
  */
@@ -12,6 +13,7 @@ module.exports.home = function(request, result) {
       result.redirect("/business-dashboard");
     }
   } else {
+    request.session.error = "";
     result.redirect("/login");
   }
 };
@@ -96,7 +98,8 @@ module.exports.post_register = function(request, result) {
     result.render("register", { message: "Email Id already exists." });
   } else {
     map.set(email, { password: password, name: name, role: role });
-    result.redirect("/");
+    request.session.error = "";
+    result.redirect("/login");
   }
 };
 
@@ -111,8 +114,37 @@ module.exports.get_user_dashboard = function(request, result) {
  * Get user dashboard
  */
 module.exports.post_user_dashboard = function(request, result) {
-  result.redirect("/user-dashboard");
+
+  var email = request.session.user;
+  var name =  map.get(request.session.user).name;
+  var password =  map.get(request.session.user).password;
+  var role =  map.get(request.session.user).role;
+  var dob = request.body.dob;
+  var gender = request.body.gender;
+  var tele = request.body.tele;
+  var add1 = request.body.add1;
+  var add2 = request.body.add2;
+  var city = request.body.city;
+  var country = request.body.country;
+  var state = request.body.state;
+  var postalCode = request.body.postalCode;
+  profileMap.set(email, { name:name, password:password, role:role, dob: dob, gender: gender, tele: tele, add1: add1, add2:add2, city:city, country:country, state:state, postalCode:postalCode });
+  result.redirect("/profile"); 
 };
+
+/*
+ * Get user profile dashboard
+ */
+module.exports.get_profile= function(request, result) {
+  var email = request.session.user;
+  var role = profileMap.get(email).role;
+  if (role == "user") {
+    result.render("user_profile", {email: email, profile: profileMap.get(email)});
+  } else {
+    result.render("business_profile", {email: email, profile: profileMap.get(email)});
+  }
+};
+
 
 /*
  * Get business dashboard

@@ -8,6 +8,21 @@ var ctrlMain = require("../controllers/main");
 router.get("/", ctrlMain.home);
 
 /*
+ * GET Login page
+ */
+router.get("/login", ctrlMain.get_login);
+
+/*
+ * POST Login page
+ */
+router.post("/login", ctrlMain.post_login);
+
+/*
+ * GET Logout
+ */
+router.post("/logout", ctrlMain.logout);
+
+/*
  * GET register page.
  */
 router.get("/register", ctrlMain.get_register);
@@ -18,14 +33,32 @@ router.get("/register", ctrlMain.get_register);
 router.post("/register", ctrlMain.post_register);
 
 /*
- * Dashboard page
+ * GET user dashboard page.
  */
-router.post("/login", ctrlMain.post_login);
+router.get("/user-dashboard", [ctrlMain.loggedIn, ctrlMain.get_user_dashboard]);
 
-// router.get("/user-dashboard", [
-//   ctrlMain.loggedIn,
-//   ctrlMain.user_dashboard,
-//   ctrlMain.login
-// ]);
+/*
+ * POST user dashboard page.
+ */
+router.post("/user-dashboard", [
+  ctrlMain.loggedIn,
+  ctrlMain.post_user_dashboard
+]);
+
+/*
+ * GET business dashboard page.
+ */
+router.get("/business-dashboard", [
+  ctrlMain.loggedIn,
+  ctrlMain.get_business_dashboard
+]);
+
+/*
+ * POST business dashboard page.
+ */
+router.post("/business-dashboard", [
+  ctrlMain.loggedIn,
+  ctrlMain.post_business_dashboard
+]);
 
 module.exports = router;

@@ -4,21 +4,78 @@ var map = new HashMap();
  * GET home page.
  */
 module.exports.home = function(request, result) {
-  result.render("index", { message: "" });
+  if (request.session.user) {
+    var role = map.get(request.session.user).role;
+    if (role == "user") {
+      result.redirect("/user-dashboard");
+    } else {
+      result.redirect("/business-dashboard");
+    }
+  } else {
+    result.redirect("/login");
+  }
 };
-module.exports.loggedIn = function(request, result, next, error_next) {
-  console.log("In loggedIn");
+
+module.exports.get_login = function(request, result) {
+  result.render("index", { message: request.session.error });
+};
+
+/*
+ * Verify if the user is loggedIn
+ */
+module.exports.loggedIn = function(request, result, next) {
   if (request.session.user) {
     // Proceed if the user is logged in.
     console.log("Logged in: ");
     console.log(request.session.user);
     next();
   } else {
-    console.log("Not logged in");
-    //result.send("You must first log in.");
-    error_next("You must first log in.");
+    request.session.error = "You must first log in.";
+    result.redirect("/login");
   }
 };
+
+/*
+ * POST login
+ */
+module.exports.post_login = function(request, result) {
+  var email = request.body.email;
+  var password = request.body.password;
+  if (map.has(email) && map.get(email).password === password) {
+    var role = map.get(email).role;
+    if (role == "user") {
+      request.session.user = email;
+      result.redirect("/user-dashboard");
+    } else {
+      request.session.user = email;
+      result.redirect("/business-dashboard");
+    }
+  } else {
+    request.session.error = "Invalid credentials";
+    result.redirect("/login");
+  }
+};
+
+/*
+ * GET logout page.
+ */
+module.exports.logout = function(request, result) {
+  console.log("Logging out:");
+
+  if (request.session.user) {
+    var name = request.session.user;
+    console.log(name);
+
+    request.session.destroy(function() {
+      console.log(name + " logged out.");
+    });
+    result.redirect("/");
+  } else {
+    console.log("Nobody is currently logged in!");
+    result.redirect("/");
+  }
+};
+
 /*
  * GET register page.
  */
@@ -33,66 +90,42 @@ module.exports.post_register = function(request, result) {
   var email = request.body.email;
   var password = request.body.password;
   var name = request.body.name;
+  var role = request.body.role;
+  console.log(role);
   if (map.has(email)) {
-    result.render("register", { message: "Email Id already exists" });
+    result.render("register", { message: "Email Id already exists." });
   } else {
-    map.set(email, { password: password, name: name });
-    result.render("index", { message: "" });
+    map.set(email, { password: password, name: name, role: role });
+    result.redirect("/");
   }
 };
 
 /*
- * GET dashboard based on the role
+ * Get user dashboard
  */
-module.exports.post_login = function(request, result) {
-  // var email = request.body.email;
-  // var password = request.body.password;
-  var email = "prajwal.venkatesh@sjsu.edu";
-  var password = "Admin@123";
-  var role = "user1";
-  // if (map.has(email) && map.get(email).password === password) {
-  if (role == "user") {
-    if (email == email && password == password) {
-      request.session.user = email;
-      result.render("user-dashboard", { user: "Admin" });
-    } else {
-      result.render("index", { message: "Invalid credentials" });
-    }
-  } else {
-    if (email == email && password == password) {
-      request.session.user = email;
-      result.render("business-dashboard", { user: "Admin" });
-      // result.render("html/business-dashboard", { user: "Admin" });
-    } else {
-      result.render("index", { message: "Invalid credentials" });
-    }
-  }
+module.exports.get_user_dashboard = function(request, result) {
+  result.render("user-dashboard", { user: map.get(request.session.user).name });
 };
 
 /*
- * GET logout page.
+ * Get user dashboard
  */
-module.exports.get_logout = function(request, result) {
-  console.log("Logging out:");
-
-  if (request.session.user) {
-    var name = request.session.user;
-    console.log(name);
-
-    request.session.destroy(function() {
-      console.log(name + " logged out.");
-    });
-
-    result.send(name + " is now logged out.");
-  } else {
-    console.log("Nobody is currently logged in!");
-    result.send("Nobody is currently logged in!");
-  }
+module.exports.post_user_dashboard = function(request, result) {
+  result.redirect("/user-dashboard");
 };
 
 /*
- * GET login page.
+ * Get business dashboard
  */
-module.exports.get_login = function(request, result, message) {
-  result.render("index", { message: message });
+module.exports.get_business_dashboard = function(request, result) {
+  result.render("business-dashboard", {
+    user: map.get(request.session.user).name
+  });
+};
+
+/*
+ * POST business dashboard
+ */
+module.exports.post_business_dashboard = function(request, result) {
+  result.redirect("/business-dashboard");
 };

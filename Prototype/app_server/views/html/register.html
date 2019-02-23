@@ -1,7 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="index.css" />
-    <link rel='icon' href='favicon.png' type='image/x-icon'/>
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
     <script type="text/javascript">
       function clearForm() {
         document.getElementById("registerForm").reset();
@@ -9,9 +9,9 @@
     </script>
   </head>
   <body>
-  <div class="logo"><img src="favicon.png" width="120" height="100";/></div>
+    <div class="logo"><img src="favicon.png" width="120" height="100" ; /></div>
     <div class="register-page">
-    <h2 class="title-center">Register to MEAN Inc.</h2>
+      <h2 class="title-center">Register to MEAN Inc.</h2>
       <div class="form">
         <form
           id="registerForm"
@@ -43,9 +43,22 @@
             required
           />
           <div>
-            <input type="radio" name="role"  id="user" checked="checked" style="margin:20px; margin-right:0px;padding:0px; width:20px;"/>
+            <input
+              type="radio"
+              name="role"
+              id="user"
+              value="user"
+              checked="checked"
+              style="margin:20px; margin-right:0px;padding:0px; width:20px;"
+            />
             <label for="user" style="font-size: 15px;">User </label>
-            <input type="radio" name="role" id="business" style="margin:20px; margin-right:0px;padding:0px; width:20px"/>
+            <input
+              type="radio"
+              name="role"
+              id="business"
+              value="business"
+              style="margin:20px; margin-right:0px;padding:0px; width:20px"
+            />
             <label for="business" style="font-size: 15px;">Business </label>
           </div>
 

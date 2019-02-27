@@ -1,6 +1,24 @@
 var HashMap = require("hashmap");
 var map = new HashMap();
-var profileMap = new Map(); 
+var profileMap = new Map();
+map.set("admin@gmail.com", {
+  password: "Admin@123",
+  name: "Admin",
+  role: "user"
+});
+
+profileMap.set("admin@gmail.com", {
+  name: "Admin",
+  dob: "10/05/1997",
+  gender: "male",
+  tele: "9090909090",
+  add1: "602 N 5 St",
+  add2: "",
+  city: "San Jose",
+  country: "USA",
+  state: "California",
+  postalCode: "95113"
+});
 /*
  * GET home page.
  */
@@ -114,9 +132,8 @@ module.exports.get_user_dashboard = function(request, result) {
  * Get user dashboard
  */
 module.exports.post_user_dashboard = function(request, result) {
-
   var email = request.session.user;
-  var name =  map.get(request.session.user).name;
+  var name = map.get(request.session.user).name;
   var dob = request.body.dob;
   var gender = request.body.gender;
   var tele = request.body.tele;
@@ -126,23 +143,39 @@ module.exports.post_user_dashboard = function(request, result) {
   var country = request.body.country;
   var state = request.body.state;
   var postalCode = request.body.postalCode;
-  profileMap.set(email, { name:name, dob: dob, gender: gender, tele: tele, add1: add1, add2:add2, city:city, country:country, state:state, postalCode:postalCode });
-  result.redirect("/profile"); 
+  profileMap.set(email, {
+    name: name,
+    dob: dob,
+    gender: gender,
+    tele: tele,
+    add1: add1,
+    add2: add2,
+    city: city,
+    country: country,
+    state: state,
+    postalCode: postalCode
+  });
+  result.redirect("/profile");
 };
 
 /*
  * Get user profile dashboard
  */
-module.exports.get_profile= function(request, result) {
+module.exports.get_profile = function(request, result) {
   var email = request.session.user;
   var role = map.get(email).role;
   if (role == "user") {
-    result.render("user_profile", {email: email, profile: profileMap.get(email)});
+    result.render("user_profile", {
+      email: email,
+      profile: profileMap.get(email)
+    });
   } else {
-    result.render("business_profile", {email: email, profile: profileMap.get(email)});
+    result.render("business_profile", {
+      email: email,
+      profile: profileMap.get(email)
+    });
   }
 };
-
 
 /*
  * Get business dashboard
@@ -158,7 +191,7 @@ module.exports.get_business_dashboard = function(request, result) {
  */
 module.exports.post_business_dashboard = function(request, result) {
   var email = request.session.user;
-  var name =  map.get(request.session.user).name;
+  var name = map.get(request.session.user).name;
   var add1 = request.body.add1;
   var add2 = request.body.add2;
   var city = request.body.city;
@@ -166,6 +199,15 @@ module.exports.post_business_dashboard = function(request, result) {
   var state = request.body.state;
   var postalCode = request.body.postalCode;
   var cuisine = request.body.cuisine;
-  profileMap.set(email, { name:name, add1: add1, add2:add2, city:city, country:country, state:state, postalCode:postalCode, cuisine:cuisine });
+  profileMap.set(email, {
+    name: name,
+    add1: add1,
+    add2: add2,
+    city: city,
+    country: country,
+    state: state,
+    postalCode: postalCode,
+    cuisine: cuisine
+  });
   result.redirect("/profile");
 };

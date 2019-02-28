@@ -1,6 +1,6 @@
 var HashMap = require("hashmap");
 var map = new HashMap();
-var profileMap = new Map();
+var profileMap = new HashMap();
 map.set("admin@gmail.com", {
   password: "Admin@123",
   name: "Admin",
@@ -65,10 +65,18 @@ module.exports.post_login = function(request, result) {
     var role = map.get(email).role;
     if (role == "user") {
       request.session.user = email;
-      result.redirect("/user-dashboard");
+      if (profileMap.has(email)) {
+        result.redirect("/profile");
+      } else {
+        result.redirect("/user-dashboard");
+      }
     } else {
       request.session.user = email;
-      result.redirect("/business-dashboard");
+      if (profileMap.has(email)) {
+        result.redirect("/profile");
+      } else {
+        result.redirect("/business-dashboard");
+      }
     }
   } else {
     request.session.error = "Invalid credentials";

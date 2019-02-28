@@ -3,6 +3,24 @@
     <link rel="stylesheet" type="text/css" href="index.css" />
     <link rel="icon" href="favicon.png" type="image/x-icon" />
     <script type="text/javascript">
+      function init() {
+        var con = document.getElementById("messageCanvas");
+        var ctx = con.getContext("2d");
+        ctx.font = "30px Georgia";
+        ctx.fillStyle = "#fefefe";
+        ctx.fillText("Register to ", 30, 30);
+        //Create gradient
+        var gradient = ctx.createLinearGradient(0, 0, con.width, 0);
+        gradient.addColorStop("0", "black");
+        gradient.addColorStop("0.4", "green");
+        gradient.addColorStop("1.0", "black");
+        // Fill with gradient
+        ctx.fillStyle = gradient;
+        ctx.shadowOffsetX = 2;
+        ctx.shadowOffsetY = 1;
+        ctx.shadowColor = "rgba(0,0,0,0.4)";
+        ctx.fillText("MEAN Inc.", 180, 30);
+      }
       function clearForm() {
         document.getElementById("registerForm").reset();
       }
@@ -16,10 +34,13 @@
       }
     </script>
   </head>
-  <body>
+  <body onload="init()">
     <div class="logo"><img src="favicon.png" width="120" height="100" ; /></div>
     <div class="register-page">
-      <h2 class="title-center">Register to MEAN Inc.</h2>
+      <!-- <h2 class="title-center">Register to MEAN Inc.</h2> -->
+      <canvas id="messageCanvas" width="360" height="50"
+        >Your browser does not support the HTML5 canvas tag.</canvas
+      >
       <div class="form">
         <form
           id="registerForm"

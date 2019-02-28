@@ -1,0 +1,145 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" type="text/css" href="/dashboard/user_profile.css" />
+  <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+  <script type= "text/javascript" src = "countries.js"></script>
+  <link rel="stylesheet" href="css/profile.css">
+  <link rel='icon' href='favicon.png' type='image/x-icon'/>
+</head>
+<body onload="init()">
+
+  <nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+    <header class="avatar">
+      <img src="ollie_ward2.jpg" />
+      <h2 class="user-name"><%= profile.name %></h2>
+    </header>
+    <ul>
+      <li tabindex="0" class="icon-dashboard"><span>Dashboard</span></li>
+      <li tabindex="0" class="icon-customers"><span>Customers</span></li>
+      <li tabindex="0" class="icon-users"><span>Users</span></li>
+      <li tabindex="0" class="icon-settings"><span>Settings</span></li>
+      <li tabindex="0" class="icon-settings"><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+    
+    <div id="user-card" class="business-card" style="display:none" onclick="cardClicked('user-card')">
+            <p class="business-item">Name: <%= profile.name %></p>
+            <p class="business-item">Date of birth: <%= profile.dob %></p>
+            <p class="business-item">Gender: <%= profile.gender %></p>
+    </div>
+    <div id="address-card" class="address-card" style="display:none" onclick="cardClicked('address-card')">
+            <!-- <p class="address-item">Name: <%= profile.name %></p> -->
+            <!-- <div class="address-item"> -->
+            <p class="business-item">Address: <%= profile.add1  %></p>
+            <p class="business-item">Country: <%= profile.country %></p>
+            <p class="business-item">State: <%= profile.state %></p>
+            <p class="business-item">City: <%= profile.city %></p>
+            <p class="business-item">Pin: <%= profile.postalCode %></p> 
+            <!-- </div> -->
+    </div>
+    <div id="contact-card" class="contact-card" style="display:none" onclick="cardClicked('contact-card')">
+            <p class="business-item">Phone: <%= profile.tele %></p>
+            <p class="business-item">Email: <%= email %></p>
+    </div>
+    <canvas id = "canvas" width=2000 height=1000>
+        <p>Canvas not supported!</p>
+    </canvas>
+    <script type = "text/javascript">
+        const CANVAS_W = 2000;
+        const CANVAS_H = 1000;
+        const IMAGE_W  = 250;
+        const IMAGE_H  = 250;
+        var con = document.getElementById("canvas").getContext("2d");
+        
+        var imageUser;
+        var imageAddress;
+        var imageContact;
+        var userImageX = 500;
+        var userImageY = 80;
+        var addressImageX = 1000;
+        var addressImageY = 80;
+        var contactImageX = 800;
+        var contactImageY = 500;
+        document.getElementById("canvas").addEventListener("mousedown", imageClicked, true);
+        var ux = 10;
+        var ax = 10;
+        var cx = 10;
+        
+        function init()
+        {
+            con.strokeStyle = "black";
+            con.fillStyle = "white";
+            
+            imageUser = new Image();
+            imageUser.src = "female.png";
+
+            imageAddress = new Image();
+            imageAddress.src = "home.jpg";
+
+            imageContact = new Image();
+            imageContact.src = "contact.jpg";
+            setInterval(drawUserCard, 300);
+            setInterval(drawAddressCard,  300);
+            setInterval(drawContactCard,  300);
+        }
+        
+        function drawUserCard()
+        {
+            con.fillRect(userImageX-ux, userImageY, IMAGE_W, IMAGE_H);
+            con.drawImage(imageUser, userImageX, userImageY, IMAGE_W, IMAGE_H);
+            
+            userImageX += ux;
+            if ((userImageX < 480) || (userImageX > 530))  ux = -ux;
+        }
+
+        function drawAddressCard()
+        {
+            con.fillRect(addressImageX-ax, addressImageY, IMAGE_W, IMAGE_H);
+            con.drawImage(imageAddress, addressImageX, addressImageY, IMAGE_W, IMAGE_H);
+            
+            addressImageX += ax;
+            if ((addressImageX < 980) || (addressImageX > 1030))  ax = -ax;
+        }
+        function drawContactCard()
+        {
+            con.fillRect(contactImageX-cx, contactImageY, IMAGE_W, IMAGE_H);
+            con.drawImage(imageContact, contactImageX, contactImageY, IMAGE_W, IMAGE_H);
+            
+            contactImageX += cx;
+            if ((contactImageX < 780) || (contactImageX > 830))  cx = -cx;
+        }
+
+        function imageClicked(e){
+            e.preventDefault();
+            var x = e.clientX;
+            var y = e.clientY;
+            if(x>=480 && x<=530+IMAGE_W && y>=80 && y<=80+IMAGE_H)
+            {
+                //alert("User Image Clicked");
+                document.getElementById("user-card").style.display='block';
+            }
+            if(x>=980 && x<=1030+IMAGE_W  && y>=80 && y<=80+IMAGE_H)
+            {
+                //alert("Address Image Clicked");
+                document.getElementById("address-card").style.display='block';
+            }
+            if(x>=780 && x<=830+IMAGE_W  && y>=500 && y<=500+IMAGE_H)
+            {
+                //alert("Contact Image Clicked");
+                document.getElementById("contact-card").style.display='block';
+            }
+        }
+
+        function cardClicked(card) {
+            var visibility = document.getElementById(card).style.display;
+            if(visibility=='block')
+                document.getElementById(card).style.display='none';
+            else
+                document.getElementById(card).style.display='block';
+        }
+    </script>
+</body>
+</html>

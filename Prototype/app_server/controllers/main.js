@@ -165,7 +165,7 @@ module.exports.get_profile = function(request, result) {
   var email = request.session.user;
   var role = map.get(email).role;
   if (role == "user") {
-    result.render("user_profile", {
+    result.render("u_profile", {
       email: email,
       profile: profileMap.get(email)
     });

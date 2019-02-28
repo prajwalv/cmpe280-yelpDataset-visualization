@@ -5,6 +5,7 @@
   <link rel="stylesheet" type="text/css" href="dashboard/user-dashboard.css" />
   <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
   <script type= "text/javascript" src = "countries.js"></script>
+  <script type= "text/javascript" src = "business-dashboard.js"></script>
   <link rel='icon' href='favicon.png' type='image/x-icon'/>
 </head>
 <body>
@@ -21,6 +22,10 @@
       <li tabindex="0" class="icon-users"><span>Insights</span></li>
       <li tabindex="0" class="icon-settings"><span>Settings</span></li>
       <li tabindex="0" class="icon-settings"><a href="/logout">Logout</a></li>
+      <li tabindex="0" class="icon-settings"><span>
+          Theme <input type="color" value="#ff0000" id="colorWell">
+        </span>
+      </li>
     </ul>
   </nav>
 <form action="/business-dashboard" method="post">
@@ -52,7 +57,7 @@
         
   <label for="postalCode">Postal Code:</label>
   <input type="text" id="postalCode" name="postalCode" pattern="^[0-9]{5}(?:-[0-9]{4})?$" required title="Postal code should conatin only numbers of length 5" >
-    
+  <div class="input-validation-postal"></div>
   </fieldset>
 
   <fieldset>

@@ -204,3 +204,18 @@ li {
 .title-center {
   text-align: center;
 }
+
+input[type=color]{
+	width: 30px;
+	height: 30px;
+	border: none;
+	border-radius: 30px;
+	background: none;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: solid 1px #000; /*change color of the swatch border here*/
+	border-radius: 30px;
+}

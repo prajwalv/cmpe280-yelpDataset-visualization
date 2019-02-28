@@ -206,10 +206,10 @@ li {
 }
 
 input[type=color]{
-	width: 30px;
-	height: 30px;
+	width: 20px;
+	height: 20px;
 	border: none;
-	border-radius: 30px;
+	border-radius: 20px;
 	background: none;
 }
 input[type="color"]::-webkit-color-swatch-wrapper {
@@ -218,4 +218,38 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 input[type="color"]::-webkit-color-swatch {
 	border: solid 1px #000; /*change color of the swatch border here*/
 	border-radius: 30px;
+}
+
+input[type="tel"]:valid {
+  color: green;
+}
+
+input[type="tel"]:valid ~ .input-validation::before {
+  content: "✓";
+  color: green;
+}
+
+input[type="tel"]:invalid {
+  color: red;
+}
+
+.input-validation {
+  display: inline-block;
+}
+
+#tele, #postalCode{
+  width: 350px;
+}
+
+#postalCode:valid ~ .input-validation-postal::before {
+  content: "✓";
+  color: green;
+}
+
+#postalCode:invalid {
+  color: red;
+}
+
+.input-validation-postal {
+  display: inline-block;
 }

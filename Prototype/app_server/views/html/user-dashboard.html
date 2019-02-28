@@ -46,8 +46,9 @@
     <input type="radio" id="gender" value="Other" name="gender"><label for="gender" class="light">Other</label>
 
     <br><br><label for="tele">Phone No:</label>
-    <input type="tel" id="tele" name="tele" placeholder="1234567890" pattern= '^[0-9]{3}[0-9]{3}[0-9]{4}$' required title="Must be of the format 1234567890" >
-
+    <input type="tel" id="tele" name="tele" placeholder="1234567890"
+    pattern= '^[0-9]{3}[0-9]{3}[0-9]{4}$' required title="Must be of the format 1234567890" />
+    <div class="input-validation"></div>
   </fieldset>
   
   <fieldset>
@@ -75,7 +76,7 @@
         
     <label for="postalCode">Postal Code:</label>
     <input type="text" id="postalCode" name="postalCode" pattern="^[0-9]{5}(?:-[0-9]{4})?$" required title="Postal code should conatin only numbers of length 5" >
-    
+    <div class="input-validation-postal"></div>
   </fieldset>
   
  

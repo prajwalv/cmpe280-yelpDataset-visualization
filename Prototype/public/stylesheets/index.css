@@ -136,8 +136,9 @@ body {
 
 .error {
   color: #ef3b3a;
-  padding-top: 10;
-  font-size: 15px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  font-size: 13px;
 }
 
 .logo

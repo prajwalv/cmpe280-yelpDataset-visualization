@@ -23,6 +23,8 @@
       }
       function clearForm() {
         document.getElementById("registerForm").reset();
+        document.getElementById("email_error").innerHTML = "";
+        document.getElementById("password_error").innerHTML = "";
       }
       function togglePassword() {
         var passwordField = document.getElementById("password");
@@ -55,6 +57,7 @@
             placeholder="name"
             required
           />
+          <div class="error" id=""></div>
           <input
             type="email"
             id="email"
@@ -62,6 +65,8 @@
             placeholder="email address"
             required
           />
+
+          <div class="error" id="email_error"></div>
           <input
             type="password"
             id="password"
@@ -71,6 +76,8 @@
             oninvalid="setCustomValidity('Please include at least 1 uppercase character, 1 lowercase character, and 1 number.')"
             required
           />
+          <div class="error" id="password_error"></div>
+
           <input
             type="checkbox"
             onclick="togglePassword()"
@@ -96,13 +103,40 @@
             <label for="business" style="font-size: 15px;">Business </label>
           </div>
 
-          <button type="submit">Register</button>
+          <button onclick="register()">Register</button>
           <button onclick="clearForm()">Clear</button>
           <div class="error"><%= message %></div>
           <p class="message">Already registered? <a href="/">Login here</a></p>
         </form>
       </div>
     </div>
-    <script src="index.js"></script>
+    <script type="text/javascript">
+    
+      function register() 
+      {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        var emailregex = /\S+@\S+\.\S+/;
+        var passregex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/;
+
+        if(!emailregex.test(email))
+        {
+           document.getElementById("email_error").innerHTML = "Invalid Email format <br> Ex. abc@xyz.com";
+           event.preventDefault();
+        }
+        
+        if(!passregex.test(password))
+        {
+           document.getElementById("password_error").innerHTML = "Invalid Password format <br> Please include at least 1 upper case character, 1 lower case character and 1 number";
+           event.preventDefault();
+        }
+        
+        if(emailregex.test(email) && passregex.test(password))
+        {
+          var form = document.getElementById("login_form").submit();
+        }
+      }
+    </script>
   </body>
 </html>

@@ -6,13 +6,18 @@
   <body onload="init()">
     <div class="logo"><img src="favicon.png" width="120" height="100" ; /></div>
     <div class="login-page">
-      <!-- <h2 class="title-center">Login to MEAN Inc.</h2> -->
       <canvas id="messageCanvas" width="360" height="50"
         >Your browser does not support the HTML5 canvas tag.</canvas
       >
       <div class="form">
         <form class="login-form" id="login_form" action="/login" method="post">
-          <input type="email"  id="email" name="email" placeholder="username" required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="username"
+            required
+          />
           <div class="error" id="email_error"></div>
           <input
             type="password"
@@ -27,9 +32,9 @@
             onclick="togglePassword()"
             style="margin-top:10px;margin-bottom:20px; margin-right:0px;margin-left:-135px;padding:0px; width:20px"
           />Show Password
-          
+
           <button onclick="login()">login</button>
-          
+
           <div class="error"><%= message %></div>
           <p class="message">
             Not registered? <a href="/register">Create an account</a>
@@ -46,7 +51,7 @@
         ctx.fillStyle = "#fefefe";
         ctx.fillText("Login to ", 30, 30);
 
-        //Create gradient
+        // Create gradient
         var gradient = ctx.createLinearGradient(0, 0, con.width, 0);
         gradient.addColorStop("0", "black");
         gradient.addColorStop("0.4", "green");
@@ -67,28 +72,30 @@
         }
       }
 
-      function login() 
-      {
+      function login() {
         var email = document.getElementById("email").value;
         var password = document.getElementById("password").value;
 
         var emailregex = /\S+@\S+\.\S+/;
         var passregex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/;
 
-        if(!emailregex.test(email))
-        {
-           document.getElementById("email_error").innerHTML = "Invalid username format <br> Ex. abc@xyz.com";
-           event.preventDefault();
+        if (!emailregex.test(email)) {
+          document.getElementById("email_error").innerHTML =
+            "Invalid username format <br> Ex. abc@xyz.com";
+          event.preventDefault();
+        } else {
+          document.getElementById("email_error").innerHTML = "";
         }
-        
-        if(!passregex.test(password))
-        {
-           document.getElementById("password_error").innerHTML = "Invalid Password format <br> Please include at least 1 upper case character, 1 lower case character and 1 number";
-           event.preventDefault();
+
+        if (!passregex.test(password)) {
+          document.getElementById("password_error").innerHTML =
+            "Invalid Password format <br> Please include at least 1 upper case character, 1 lower case character and 1 number";
+          event.preventDefault();
+        } else {
+          document.getElementById("password_error").innerHTML = "";
         }
-        
-        if(emailregex.test(email) && passregex.test(password))
-        {
+
+        if (emailregex.test(email) && passregex.test(password)) {
           var form = document.getElementById("login_form").submit();
         }
       }

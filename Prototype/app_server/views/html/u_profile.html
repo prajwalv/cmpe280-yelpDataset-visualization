@@ -31,14 +31,11 @@
             <p class="business-item">Gender: <%= profile.gender %></p>
     </div>
     <div id="address-card" class="address-card" style="display:none" onclick="cardClicked('address-card')">
-            <!-- <p class="address-item">Name: <%= profile.name %></p> -->
-            <!-- <div class="address-item"> -->
             <p class="business-item">Address: <%= profile.add1  %></p>
             <p class="business-item">Country: <%= profile.country %></p>
             <p class="business-item">State: <%= profile.state %></p>
             <p class="business-item">City: <%= profile.city %></p>
             <p class="business-item">Pin: <%= profile.postalCode %></p> 
-            <!-- </div> -->
     </div>
     <div id="contact-card" class="contact-card" style="display:none" onclick="cardClicked('contact-card')">
             <p class="business-item">Phone: <%= profile.tele %></p>
@@ -118,17 +115,14 @@
             var y = e.clientY;
             if(x>=480 && x<=530+IMAGE_W && y>=80 && y<=80+IMAGE_H)
             {
-                //alert("User Image Clicked");
                 document.getElementById("user-card").style.display='block';
             }
             if(x>=980 && x<=1030+IMAGE_W  && y>=80 && y<=80+IMAGE_H)
             {
-                //alert("Address Image Clicked");
                 document.getElementById("address-card").style.display='block';
             }
             if(x>=780 && x<=830+IMAGE_W  && y>=500 && y<=500+IMAGE_H)
             {
-                //alert("Contact Image Clicked");
                 document.getElementById("contact-card").style.display='block';
             }
         }

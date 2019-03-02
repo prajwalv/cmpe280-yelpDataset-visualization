@@ -119,7 +119,6 @@ module.exports.post_register = function(request, result) {
   var password = request.body.password;
   var name = request.body.name;
   var role = request.body.role;
-  console.log(role);
   if (map.has(email)) {
     result.render("register", { message: "Email Id already exists." });
   } else {

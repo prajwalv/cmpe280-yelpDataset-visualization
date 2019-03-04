@@ -11,8 +11,16 @@ body {
   color: #384047;
 }
 
+div {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #000; 
+  color: #fff;
+  border-radius: 8px;
+}
+
 form {
-  max-width: 300px;
+  max-width: 500px;
   margin: 10px auto;
   padding: 10px 20px;
   background: #f4f7f8;
@@ -253,3 +261,4 @@ input[type="tel"]:invalid {
 .input-validation-postal {
   display: inline-block;
 }
+

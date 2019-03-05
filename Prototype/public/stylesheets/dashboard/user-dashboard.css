@@ -14,7 +14,7 @@ body {
 div {
   max-width: 700px;
   margin: 0 auto;
-  background: #000; 
+  background: #000;
   color: #fff;
   border-radius: 8px;
 }
@@ -32,7 +32,19 @@ h1 {
   text-align: center;
 }
 
-a {
+.a-selectable {
+  font-weight: regular;
+  color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-position: left 15px center;
+  background-size: auto 20px;
+  transition: all 0.35s linear;
+  cursor: pointer;
+}
+.a-tabs {
   font-size: 25px;
   font-weight: regular;
   color: #fff;
@@ -213,19 +225,19 @@ li {
   text-align: center;
 }
 
-input[type=color]{
-	width: 20px;
-	height: 20px;
-	border: none;
-	border-radius: 20px;
-	background: none;
+input[type="color"] {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 20px;
+  background: none;
 }
 input[type="color"]::-webkit-color-swatch-wrapper {
-	padding: 0;
+  padding: 0;
 }
 input[type="color"]::-webkit-color-swatch {
-	border: solid 1px #000; /*change color of the swatch border here*/
-	border-radius: 30px;
+  border: solid 1px #000; /*change color of the swatch border here*/
+  border-radius: 30px;
 }
 
 input[type="tel"]:valid {
@@ -245,7 +257,8 @@ input[type="tel"]:invalid {
   display: inline-block;
 }
 
-#tele, #postalCode{
+#tele,
+#postalCode {
   width: 350px;
 }
 
@@ -262,3 +275,42 @@ input[type="tel"]:invalid {
   display: inline-block;
 }
 
+#selectable .ui-selecting {
+  background: #feca40;
+}
+#selectable .ui-selected {
+  background: white;
+  color: #3ac162;
+}
+.selectable-li {
+  background: rgb(62, 168, 94);
+  color: white;
+  border: none;
+  font-size: 22px;
+  font-weight: regular;
+}
+.selectable-li a {
+  background: rgb(62, 168, 94);
+  color: white;
+  border: none;
+  font-size: 20px;
+}
+
+.selectable-li span input {
+  background: rgb(62, 168, 94);
+  color: white;
+  border: none;
+  font-size: 20px;
+}
+#selectable .ui-selected .a-selected {
+  background: white;
+  color: #3ac162;
+}
+
+#selectable .ui-selected span {
+  color: #3ac162;
+}
+
+.selectable-span {
+  font-size: 22px;
+}

@@ -6,23 +6,21 @@
   <title>Complete your profile</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <!-- <link rel="stylesheet" href="/resources/demos/style.css">  -->
-
   <link rel="stylesheet" type="text/css" href="dashboard/user-dashboard.css" />
   <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script type= "text/javascript" src = "countries.js"></script>
   <script type= "text/javascript" src = "user-dashboard.js"></script>
+
+  <link rel="stylesheet"
+          type="text/css"
+          href="css/jquery-ui-lightness/jquery-ui.min.css" />
+          <script type="text/javascript"
+          src="js/jquery-ui-lightness/jquery-ui.min.js">
+  </script>
   
   <link rel='icon' href='favicon.png' type='image/x-icon'/>
-  <script>
-  $( function() {
-    $( "#tabs" ).tabs();
-  } );
-  $( function() {
-    $( "#dob" ).datepicker();
-  } );
-  </script>
 </head>
 <body>
   <nav class="menu" tabindex="0" id="navbar">
@@ -31,13 +29,13 @@
       <img src="ollie_ward2.jpg" />
       <h2><%= user %></h2>
     </header>
-    <ul>
-      <li tabindex="0" class="icon-dashboard"><span>Dashboard</span></li>
-      <li tabindex="0" class="icon-customers"><span>Profile</span></li>
-      <li tabindex="0" class="icon-users"><span>Insights</span></li>
-      <li tabindex="0" class="icon-settings"><span>Settings</span></li>
-      <li tabindex="0" class="icon-settings"><a href="/logout">Logout</a></li>
-      <li tabindex="0" class="icon-settings"><span>
+    <ul id="selectable">
+      <li tabindex="0" class="ui-widget-content selectable-li">Dashboard</li>
+      <li tabindex="1" class="ui-widget-content selectable-li">Profile</li>
+      <li tabindex="2" class="ui-widget-content selectable-li">Insights</li>
+      <li tabindex="3" class="ui-widget-content selectable-li">Settings</li>
+      <li tabindex="4" class="ui-widget-content selectable-li"><a class="a-selectable" href="/logout">Logout</a></li>
+      <li tabindex="5" class="ui-widget-content selectable-li icon-settings "><span class="selectable-span">
           Theme <input type="color" value="#ff0000" id="colorWell">
         </span>
       </li>
@@ -46,9 +44,9 @@
   <form action="/user-dashboard" method="post" id="myform"></form>
 <div id="tabs">
   <ul>
-    <li><a href="#basicInfo">Your basic info</a></li>
-    <li><a href="#address">Address</a></li>
-    <li><a href="#review">Review and Save</a></li>
+    <li><a href="#basicInfo" class="a-tabs">Your basic info</a></li>
+    <li><a href="#address" class="a-tabs">Address</a></li>
+    <li><a href="#review" class="a-tabs">Review and Save</a></li>
   </ul>
   <div id="basicInfo">
     <h1>Complete your profile</h1>

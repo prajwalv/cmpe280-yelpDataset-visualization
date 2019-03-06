@@ -16,3 +16,5 @@ function updateFirst(event) {
 }function updateAll(event) {
     document.body = event.target.value;
 }
+
+

@@ -1,264 +1,144 @@
-*,
-*:before,
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  font-family: "Nunito", sans-serif;
-  color: #384047;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 30px;
+  color: #777;
+  background: #4CAF50;
 }
 
-div {
-  max-width: 700px;
+.container {
+  max-width: 400px;
+  width: 100%;
   margin: 0 auto;
-  background: #000; 
-  color: #fff;
-  border-radius: 8px;
+  position: relative;
 }
 
-form {
-  max-width: 500px;
-  margin: 10px auto;
-  padding: 10px 20px;
-  background: #f4f7f8;
-  border-radius: 8px;
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea,
+#contact button[type="submit"] {
+  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
 }
 
-h1 {
-  margin: 0 0 30px 0;
-  text-align: center;
+#contact {
+  background: #F9F9F9;
+  padding: 25px;
+  margin: 150px 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-a {
-  font-size: 25px;
-  font-weight: regular;
-  color: #fff;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  text-decoration: none;
-  background-repeat: no-repeat;
-  background-position: left 15px center;
-  background-size: auto 20px;
-  transition: all 0.35s linear;
-  cursor: pointer;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="date"],
-input[type="datetime"],
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="tel"],
-input[type="time"],
-input[type="url"],
-textarea,
-select {
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  font-size: 10px;
-  height: auto;
-  margin: 0;
-  outline: 0;
-  padding: 15px;
-  width: 100%;
-  background-color: #e8eeef;
-  color: #8a97a0;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-  margin-bottom: 30px;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  margin: 0 4px 8px 0;
-}
-
-select {
-  padding: 6px;
-  height: 32px;
-  border-radius: 2px;
-}
-
-button {
-  padding: 19px 39px 18px 39px;
-  color: #fff;
-  background-color: #4bc970;
-  font-size: 20px;
-  text-align: center;
-  font-style: normal;
-  border-radius: 5px;
-  width: 100%;
-  border: 1px solid #3ac162;
-  border-width: 1px 1px 3px;
-  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+#contact h3 {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
   margin-bottom: 10px;
+}
+
+#contact h4 {
+  margin: 5px 0 15px;
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
 }
 
 fieldset {
-  margin-bottom: 30px;
-  border: none;
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
 }
 
-legend {
-  font-size: 1.1em;
-  margin-bottom: 10px;
-  text-align: center;
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
 }
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 16px;
+#contact input[type="text"]:hover,
+#contact input[type="email"]:hover,
+#contact input[type="tel"]:hover,
+#contact input[type="url"]:hover,
+#contact textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #aaa;
 }
 
-label.light {
-  font-weight: 300;
-  display: inline;
+#contact textarea {
+  height: 100px;
+  max-width: 100%;
+  resize: none;
 }
 
-.number {
-  background-color: #5fcf80;
-  color: #fff;
-  height: 30px;
-  width: 30px;
-  display: inline-block;
-  font-size: 0.8em;
-  margin-right: 4px;
-  line-height: 30px;
-  text-align: center;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
-  border-radius: 100%;
-}
-
-@media screen and (min-width: 480px) {
-  form {
-    max-width: 480px;
-  }
-}
-
-.helper {
-  background: rgba(0, 0, 0, 0.2);
-  color: #ffea92;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  padding: 1.2em 2em;
-  text-align: center;
-  border-radius: 20px;
-  font-size: 2em;
-  font-weight: bold;
-}
-span {
-  color: white;
-  font-size: 25px;
-  /* padding: 10px; */
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  display: block;
-}
-
-.menu {
-  background: rgb(62, 168, 94);
-  height: 100%;
-  width: 300px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  outline: none;
-  border-radius: 4px;
-}
-.avatar {
-  background: rgba(0, 0, 0, 0.1);
-  padding: 2em 0.5em;
-  text-align: center;
-}
-img {
-  width: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid rgb(41, 119, 65);
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
-}
-
-.user-name {
-  font-weight: normal;
-  margin-bottom: 0;
-  color: white;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-ul {
-  list-style: none;
-  padding: 0.5em 0;
-  margin: 0;
-}
-li {
-  padding: 0.5em 1em 0.5em 3em;
-  font-size: 0.95em;
-  font-weight: regular;
-  background-repeat: no-repeat;
-  background-position: left 15px center;
-  background-size: auto 20px;
-  transition: all 0.35s linear;
+#contact button[type="submit"] {
   cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #4CAF50;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
 }
 
-.title-center {
+#contact button[type="submit"]:hover {
+  background: #43A047;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.copyright {
   text-align: center;
 }
 
-input[type=color]{
-	width: 20px;
-	height: 20px;
-	border: none;
-	border-radius: 20px;
-	background: none;
-}
-input[type="color"]::-webkit-color-swatch-wrapper {
-	padding: 0;
-}
-input[type="color"]::-webkit-color-swatch {
-	border: solid 1px #000; /*change color of the swatch border here*/
-	border-radius: 30px;
+#contact input:focus,
+#contact textarea:focus {
+  outline: 0;
+  border: 1px solid #aaa;
 }
 
-input[type="tel"]:valid {
-  color: green;
+::-webkit-input-placeholder {
+  color: #888;
 }
 
-input[type="tel"]:valid ~ .input-validation::before {
-  content: "✓";
-  color: green;
+:-moz-placeholder {
+  color: #888;
 }
 
-input[type="tel"]:invalid {
-  color: red;
+::-moz-placeholder {
+  color: #888;
 }
 
-.input-validation {
-  display: inline-block;
+:-ms-input-placeholder {
+  color: #888;
 }
-
-#tele, #postalCode{
-  width: 350px;
-}
-
-#postalCode:valid ~ .input-validation-postal::before {
-  content: "✓";
-  color: green;
-}
-
-#postalCode:invalid {
-  color: red;
-}
-
-.input-validation-postal {
-  display: inline-block;
-}
-

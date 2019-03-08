@@ -176,7 +176,7 @@
     justify-content: center;
     align-items: center;
     padding: 15px;
-    background: #e6e6e6;
+    background: #4CAF50;
     
   }
   
@@ -710,7 +710,7 @@
     position: unset;
     height: 12px;
     width: 9px;
-    background-color: transparent;
+    background-color: #0000ff;
     border-left: 2px solid #cccccc;
     border-right: 2px solid #cccccc;
   }

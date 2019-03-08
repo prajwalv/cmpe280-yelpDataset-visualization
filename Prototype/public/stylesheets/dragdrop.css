@@ -1,3 +1,66 @@
+.dragMe {
+    width: 200px;
+    height: 150px;
+    border: 1px solid #4bc970;
+    text-align: center;
+    background-color: white;
+    position: absolute;
+    z-index: 100;
+    margin: 10px;
+}
+
+.small-graphs
+{
+    /* left: 25%;
+    top: 25%; */
+    border-style: hidden;
+    /* margin-top: 20%; */
+}
+.small-graphs.ui-widget.ui-widget-content.ui-corner-all{
+    border-style: hidden !important;
+    top: 35%;
+    
+}
+
+.ui-widget.ui-widget-content
+{
+    background: white;
+}
+
+a.side-bar-menu{
+    color: white;
+    font-size: 25px;
+    /* padding: 10px; */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    display: block;
+    text-decoration: none;
+}
+
+#target {
+    width: 800px;
+    height: 600px;
+    border: 1px solid #4bc970;
+    text-align: center;
+    position: absolute;
+    z-index: -10;
+    left: 45%;
+    /* margin-top: 10%;  */
+}
+
+.overlap {
+    width: 800px;
+    height: 600px;
+    border: 1px solid #4bc970;
+    /* text-align: center; */
+    position: absolute;
+    /* top: 248px; */
+    z-index: 10;
+    /* left: 40%; */
+    
+}
+
+.zindex60 {z-index:110;}
+
 *,
 *:before,
 *:after {
@@ -14,7 +77,6 @@ body {
 div {
   max-width: 700px;
   margin: 0 auto;
-  background: #000;
   color: #fff;
   border-radius: 8px;
 }
@@ -189,7 +251,7 @@ span {
   padding: 2em 0.5em;
   text-align: center;
 }
-img {
+img.profile-pic {
   width: 100px;
   border-radius: 50%;
   overflow: hidden;
@@ -314,19 +376,3 @@ input[type="tel"]:invalid {
 .selectable-span {
   font-size: 22px;
 }
-
-
-a.side-bar-menu{
-  background: rgb(62, 168, 94);
-  color: white;
-  border: none;
-  font-size: 22px;
-  font-weight: regular;
-  /* color: white; */
-  /* font-size: 22px; */
-  /* padding: 10px; */
-  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
-  /* display: block; */
-  text-decoration: none;
-}
-

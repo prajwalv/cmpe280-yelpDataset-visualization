@@ -218,3 +218,7 @@ module.exports.post_business_dashboard = function(request, result) {
   });
   result.redirect("/profile");
 };
+
+module.exports.get_graphs = function(request, result) {
+  result.render("graphs.html");
+};

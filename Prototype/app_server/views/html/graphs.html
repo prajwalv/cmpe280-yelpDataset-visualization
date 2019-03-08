@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<!-- Adapted from: 
+     HTML5 and CSS3 for Dummies, 3rd ed.
+     by Andy Harris
+     Wiley, 2014
+     ISBN 978-1-118-28938-9
+ -->
+
+<head>
+    <title>Drag and Drop</title>
+    <meta charset="utf-8" />
+        <link rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/humanity/jquery-ui.css" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="dragdrop.css" />
+
+    <!--<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.1.min.js"></script>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <script type= "text/javascript" src = "dragdrop.js"></script>
+
+</head>
+
+<body>
+  <nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+    <header class="avatar">
+      <img class="profile-pic" src="restaurant.jpg" />
+      <h2 class="user-name"></h2>
+    </header>
+    <ul>
+      <li tabindex="0" class="icon-dashboard"><span>Dashboard</span></li>
+      <li tabindex="0" class="icon-customers"><span>Profile</span></li>
+      <li tabindex="0" class="icon-settings"><span>Settings</span></li>
+      <li tabindex="0" class="icon-settings"><a class="side-bar-menu" href="/logout">Logout</a></li>
+      <li tabindex="0" class="icon-settings"><span>
+          Theme <input type="color" value="#ff0000" id="colorWell">
+        </span>
+      </li>
+      <li tabindex="0" class="icon-settings"><a class="side-bar-menu" href="/graphs">Graphs</a></li>
+    </ul>
+  </nav>
+
+        <div class="small-graphs">
+            <img class="dragMe" src="bar_chart.png" id="bar" width="200px"    height="150px">
+            
+        </div>
+
+        <div class="big-graph" id="target">
+            Drag here to resize the graph
+        </div>
+</body>
+</html>

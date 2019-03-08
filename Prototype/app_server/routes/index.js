@@ -69,4 +69,9 @@ router.get("/profile", [
     ctrlMain.get_profile
   ]);
   
+  router.get("/graphs", [
+    ctrlMain.loggedIn,
+    ctrlMain.get_graphs
+  ]);
+
 module.exports = router;

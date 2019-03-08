@@ -1,14 +1,11 @@
 var colorWell;
 var defaultColor = "#0000ff";
 
-$(function() {
+window.addEventListener("load", startup, false);
+function startup() {
   $("#selectable").selectable({
     cancel: "a,input"
   });
-});
-
-window.addEventListener("load", startup, false);
-function startup() {
   colorWell = document.querySelector("#colorWell");
   colorWell.value = defaultColor;
   colorWell.addEventListener("input", updateFirst, false);

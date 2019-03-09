@@ -34,15 +34,19 @@
       <h2 class="user-name"></h2>
     </header>
     <ul>
-      <li tabindex="0" class="icon-dashboard"><span>Dashboard</span></li>
-      <li tabindex="0" class="icon-customers"><span>Profile</span></li>
-      <li tabindex="0" class="icon-settings"><span>Settings</span></li>
-      <li tabindex="0" class="icon-settings"><a class="side-bar-menu" href="/logout">Logout</a></li>
-      <li tabindex="0" class="icon-settings"><span>
-          Theme <input type="color" value="#ff0000" id="colorWell">
-        </span>
-      </li>
-      <li tabindex="0" class="icon-settings"><a class="side-bar-menu" href="/graphs">Graphs</a></li>
+      <li tabindex="0" class="ui-widget-content selectable-li"><a class="side-bar-menu" href="/business-dashboard">Dashboard</a></li>
+          <li tabindex="1" class="ui-widget-content selectable-li">Profile</li>
+          <li tabindex="2" class="ui-widget-content selectable-li">Insights</li>
+          <li tabindex="3" class="ui-widget-content selectable-li">Settings</li>
+          <li tabindex="4" class="ui-widget-content selectable-li">
+            <a class="a-selectable" href="/logout">Logout</a>
+          </li>
+          <li tabindex="5" class="ui-widget-content selectable-li icon-settings ">
+            <span class="selectable-span">
+              Theme <input type="color" value="#ff0000" id="colorWell" />
+            </span>
+          </li>
+          <li tabindex="5" class="ui-widget-content selectable-li"><a class="side-bar-menu" href="/graphs">Graphs</a></li>
     </ul>
   </nav>
 

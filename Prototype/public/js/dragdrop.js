@@ -2,14 +2,11 @@ $(init);
 function init()
 {
     zValue = 100;
-    // cloneDragMe();
-    // $(".dragMe").resizable();
     $(".dragMe").draggable({revert:false});
     $("#target").droppable();
 
     $("#target").bind("drop", highlightTarget);
     $("#target").bind("dropout", resetTarget);
-    
 
     $("div").addClass("ui-widget")
             .addClass("ui-widget-content")
@@ -26,26 +23,11 @@ function highlightTarget(event, ui)
                 .html("Dropped ")
                 .append(ui.draggable.text());
 
-    // $("#target").resizable();
     ui.draggable.prop('class', 'overlap');
-
     ui.draggable.css("left", $("#target").position().left)
                 .css("top", $("#target").position().top)
                 .css("z-index", zValue);
-
-    // event.target.css("left", $("#target").position().left)
-    //             .css("top", $("#target").position().top)
-    //             .css("z-index", zValue+100);
-
-    // ui.draggable({
-    //     $(this).css()
-    // })
-    // $(this).css("left", $("#target").position().left)
-    //         .css("top", $("#target").position().top)
-    //         .css("z-index", zValue+100);
-
     ui.draggable.resizable();
-    // ui.draggable.draggable();
     zValue = zValue+100;
     console.log(zValue);
 } 

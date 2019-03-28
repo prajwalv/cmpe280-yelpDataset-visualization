@@ -62,16 +62,18 @@ router.post("/business-dashboard", [
 ]);
 
 /*
+ * GET admin dashboard page.
+ */
+router.get("/admin-dashboard", [
+  ctrlMain.loggedIn,
+  ctrlMain.get_admin_dashboard
+]);
+
+/*
  * GET profile page.
  */
-router.get("/profile", [
-    ctrlMain.loggedIn,
-    ctrlMain.get_profile
-  ]);
-  
-  router.get("/graphs", [
-    ctrlMain.loggedIn,
-    ctrlMain.get_graphs
-  ]);
+router.get("/profile", [ctrlMain.loggedIn, ctrlMain.get_profile]);
+
+router.get("/graphs", [ctrlMain.loggedIn, ctrlMain.get_graphs]);
 
 module.exports = router;

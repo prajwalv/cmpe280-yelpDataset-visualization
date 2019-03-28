@@ -4,7 +4,7 @@ var profileMap = new HashMap();
 map.set("admin@gmail.com", {
   password: "Admin@123",
   name: "Admin",
-  role: "user"
+  role: "admin"
 });
 
 profileMap.set("admin@gmail.com", {
@@ -27,6 +27,8 @@ module.exports.home = function(request, result) {
     var role = map.get(request.session.user).role;
     if (role == "user") {
       result.redirect("/user-dashboard");
+    } else if (role == "admin") {
+      result.redirect("/admin-dashboard");
     } else {
       result.redirect("/business-dashboard");
     }
@@ -63,7 +65,7 @@ module.exports.post_login = function(request, result) {
   var password = request.body.password;
   if (map.has(email) && map.get(email).password === password) {
     var role = map.get(email).role;
-    if (role == "user") {
+    if (role == "user" || role == "admin") {
       request.session.user = email;
       if (profileMap.has(email)) {
         result.redirect("/profile");
@@ -189,6 +191,15 @@ module.exports.get_profile = function(request, result) {
  */
 module.exports.get_business_dashboard = function(request, result) {
   result.render("business-dashboard", {
+    user: map.get(request.session.user).name
+  });
+};
+
+/*
+ * Get admin dashboard
+ */
+module.exports.get_admin_dashboard = function(request, result) {
+  result.render("admin-dashboard", {
     user: map.get(request.session.user).name
   });
 };

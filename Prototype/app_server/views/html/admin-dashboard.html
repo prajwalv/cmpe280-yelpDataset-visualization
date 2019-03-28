@@ -18,10 +18,8 @@
           <h2><%= user %></h2>
         </header>
         <ul id="selectable">
-          <li tabindex="0" class="ui-widget-content selectable-li">Dashboard</li>
-          <li tabindex="1" class="ui-widget-content selectable-li">Profile</li>
-          <li tabindex="2" class="ui-widget-content selectable-li">Insights</li>
-          <li tabindex="3" class="ui-widget-content selectable-li">Settings</li>
+          <li tabindex="0" class="ui-widget-content selectable-li">Manage Users</li>
+          <li tabindex="0" class="ui-widget-content selectable-li">Add Users</li>
           <li tabindex="4" class="ui-widget-content selectable-li">
             <a class="a-selectable" href="/logout">Logout</a>
           </li>
@@ -30,66 +28,24 @@
               Theme <input type="color" value="#ff0000" id="colorWell" />
             </span>
           </li>
-          <li tabindex="5" class="ui-widget-content selectable-li"><a class="side-bar-menu" href="/graphs">Graphs</a></li>
-        </ul>
+          </ul>
       </nav>
-<form action="/business-dashboard" method="post">
+<form action="/" method="post">
 
-  <h2 class="title-center">Complete your business profile</h2>
+  <h2 class="title-center">Users</h2>
 
-  <fieldset>
-    <legend><span class="number">1</span>Basic Info</legend>
-    <label for="add1">Address Line 1:</label>
-    <input type="text" id="add1" name="add1" required>
-
-    <label for="add2">Address Line 2(optional):</label>
-    <input type="text" id="add2" name="add2" title="Apt #">
-      
-    <label for="city">City:</label>
-    <input type="text" id="city" name="city" required>
-    </select>
-
-    <label for="country">Country:</label>
-    <select name="country" id="country" required>
-    </select>
-    <script language="javascript">
-        populateCountries("country", "state");
-    </script>
-
-  <label for="state">State:</label>
-  <select  name="state" id="state" required>
-  </select>
-        
-  <label for="postalCode">Postal Code:</label>
-  <input type="text" id="postalCode" name="postalCode" pattern="^[0-9]{5}(?:-[0-9]{4})?$" required title="Postal code should conatin only numbers of length 5" >
-  <div class="input-validation-postal"></div>
-  </fieldset>
-
-  <fieldset>
-      <legend><span class="number">2</span>Business Info</legend>
-
-    <label for="about">Categories:</label>
-    <input type="radio" name="cuisine" value="Mexican" >Mexican<br>
-    <input type="radio" name="cuisine" value="Indian">Indian <br>
-    <input type="radio" name="cuisine" value="Italian"> Italian<br>
-    <input type="radio" name="cuisine" value="Chinese"> Chinese<br>
-    <input type="radio" name="cuisine" value="Others"> Others
-
-    <br><br><label for="about">Open days:</label>
-    <input type="checkbox" name="Monday" value="Monday" >Monday<br>
-    <input type="checkbox" name="Tuesday" value="Tuesday">Tuesday <br>
-    <input type="checkbox" name="Wednesday" value="Wednesday"> Wednesday<br>
-    <input type="checkbox" name="Thursday" value="Thursday"> Thursday<br>
-    <input type="checkbox" name="Friday" value="Friday"> Friday<br>
-    <input type="checkbox" name="Saturday" value="Saturday"> Saturday<br>
-    <input type="checkbox" name="Sunday" value="Sunday"> Sunday<br>
-
-    <br><label for="about">About:</label>
-      <textarea id="about" name="about" rows="4" cols="50" maxlength=200  placeholder="Maximum of 200 characters"  required></textarea>
-  
-    </fieldset>
- 
-  <button type="submit">Save</button>
+  <input type="search" id="search_user" onkeyup="search_users()"/>
+  <ul id="user_list">
+    <li><a href="#">User 1</a></li>
+    <li><a href="#">Alex</a></li>
+    <li><a href="#">Bob</a></li>
+    <li><a href="#">Carl</a></li>
+    <li><a href="#">Dobby</a></li>
+    <li><a href="#">Ele</a></li>
+    <li><a href="#">Fanny</a></li>
+    <li><a href="#">George</a></li>
+    <li><a href="#">Hannah</a></li>
+  </ul>
 </form>
 
 </body>

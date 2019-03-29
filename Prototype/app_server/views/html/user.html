@@ -4,8 +4,12 @@
     <title>Complete your profile</title>
     <link rel="stylesheet" type="text/css" href="/dashboard/user_profile.css" />
     <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type= "text/javascript" src = "/countries.js"></script>
-    <script type= "text/javascript" src = "/user-dashboard.js"></script>
+    <script type= "text/javascript" src = "/user.js"></script>
+    <link rel="stylesheet" href="/dashboard/business-dashboard.css">
     
     <link rel='icon' href='/favicon.png' type='image/x-icon'/>
   </head>
@@ -17,12 +21,12 @@
             <img src="/ollie_ward2.jpg" />
           </header>
           <ul id="selectable">
-            <li tabindex="0" class="ui-widget-content selectable-li">Manage Users</li>
-            <li tabindex="0" class="ui-widget-content selectable-li">Add Users</li>
-            <li tabindex="4" class="ui-widget-content selectable-li">
+            <li tabindex="0" class="ui-widget-content selectable-li"><a class="a-selectable" href="/admin-dashboard">Manage Users</a></li>
+            <li tabindex="1" class="ui-widget-content selectable-li"><a class="a-selectable" href="/user">Add Users</a></li>
+            <li tabindex="2" class="ui-widget-content selectable-li">
               <a class="a-selectable" href="/logout">Logout</a>
             </li>
-            <li tabindex="5" class="ui-widget-content selectable-li icon-settings ">
+            <li tabindex="3" class="ui-widget-content selectable-li icon-settings ">
               <span class="selectable-span">
                 Theme <input type="color" value="#ff0000" id="colorWell" />
               </span>
@@ -30,21 +34,21 @@
             </ul>
         </nav>
   
-  <form id="myform" action="/user" method="POST">
+  <form id="myform">
     
-    <h1>Complete your profile</h1>
+    <h1><%= profile.name %>'s Profile</h1>
     
     <fieldset> 
-      <legend><span class="number">1</span>Your basic info</legend>
+      <legend><span class="number">1</span>Basic info</legend>
       <label for="name">Name:</label>
       <input name="name" type="text" value="<%= profile.name %>"/>
       <label for="email">Email:</label>
       <input name="email" type="email" value="<%= profile.email %>">
       
-      <label>Gender:</label>
+      <!-- <label>Gender:</label>
       <input type="radio" id="gender" value="Male" name="gender" required><label for="gender" class="light">Male</label>
       <input type="radio" id="gender" value="Female" name="gender"><label for="gender" class="light">Female</label>
-      <input type="radio" id="gender" value="Other" name="gender"><label for="gender" class="light">Other</label>
+      <input type="radio" id="gender" value="Other" name="gender"><label for="gender" class="light">Other</label> -->
   
       <br><br><label for="tele">Phone No:</label>
       <input type="tel" id="tele" name="tele" placeholder="1234567890"
@@ -86,9 +90,9 @@
     </fieldset>
     
    
-    <button id="update" type="submit" formaction="/user/<%= profile.id %>" formmethod="PUT">
+    <button id="update" type="submit" onclick="updateUser('<%= profile.id %>')">
       Update</button>
-    <button id="delete" type="submit" formaction="/user/<%= profile.id %>" formmethod="DELETE">
+    <button id="delete" type="submit" onclick="deleteUser('<%= profile.id %>')">
       Delete</button>
   </form>
   

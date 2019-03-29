@@ -69,7 +69,6 @@ router.get("/profile", [ctrlMain.loggedIn, ctrlMain.get_profile]);
 
 router.get("/graphs", [ctrlMain.loggedIn, ctrlMain.get_graphs]);
 
-
 /*
  * GET admin dashboard page.
  */
@@ -88,9 +87,9 @@ router.get("/user", [ctrlMain.loggedIn, ctrlMain.get_add_user]);
 router.post("/user", [ctrlMain.loggedIn, modelMain.add_user]);
 
 /* Update user details*/
-router.post("/user/:userId", [ctrlMain.loggedIn, modelMain.update_user]);
+router.put("/user/:userId", [ctrlMain.loggedIn, modelMain.update_user]);
 
 /* Delete user details*/
-router.post("/user/:userId", [ctrlMain.loggedIn, modelMain.delete_user]);
+router.delete("/user/:userId", [ctrlMain.loggedIn, modelMain.delete_user]);
 
 module.exports = router;

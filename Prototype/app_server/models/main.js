@@ -4,14 +4,12 @@ var User = require("./user");
 
 module.exports.get_admin_dashboard = function(request, result) {
   User.find({ name: { $ne: "Admin" } }, "id name", function(err, userList) {
-    console.log("I am in get all");
     if (err) throw err;
     result.render("admin-dashboard", { user: "Admin", userList: userList });
   });
 };
 
 module.exports.get_user = function(request, result) {
-  console.log("I am in get one");
   User.findOne(
     { id: parseInt(request.params.userId) },
     {
@@ -29,7 +27,6 @@ module.exports.get_user = function(request, result) {
       postalCode: 1
     },
     function(err, userData) {
-      console.log(userData);
       if (err) throw err;
       if (userData) {
         result.render("user", {
@@ -44,7 +41,6 @@ module.exports.get_user = function(request, result) {
 };
 
 module.exports.add_user = function(request, result) {
-  console.log("I am in add one");
   get_max_id().then(maxId => {
     var id = parseInt(maxId) + 1;
     User.create(
@@ -67,7 +63,6 @@ module.exports.add_user = function(request, result) {
         isActive: true
       },
       function(err, userData) {
-        console.log(userData);
         if (err) throw err;
         result.redirect("/admin-dashboard");
       }
@@ -76,14 +71,11 @@ module.exports.add_user = function(request, result) {
 };
 
 module.exports.update_user = function(request, result) {
-  console.log("I am in update one");
   User.updateOne(
     { id: parseInt(request.params.userId) },
     {
       email: request.body.email,
       name: request.body.name,
-      dob: request.body.dob,
-      gender: request.body.gender,
       tele: request.body.tele,
       add1: request.body.add1,
       add2: request.body.add2,
@@ -100,7 +92,6 @@ module.exports.update_user = function(request, result) {
 };
 
 module.exports.delete_user = function(request, result) {
-  console.log("I am in delete");
   User.deleteOne({ id: parseInt(request.params.userId) }, function(err, dat) {
     if (err) throw err;
     result.redirect("/admin-dashboard");

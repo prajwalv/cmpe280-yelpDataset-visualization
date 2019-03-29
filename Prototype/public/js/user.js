@@ -20,15 +20,28 @@ function updateAll(event) {
 }
 
 function updateUser(userId) {
-  //   $.ajax({
-  //     url: "/user/" + userId,
-  //     method: "PUT",
-  //     success: function(response) {
-  //       console.log(response);
-  //     }
-  //   }).error(function(err) {
-  //     console.log(err);
-  //   });
+  $.ajax({
+    url: "/user/" + userId,
+    method: "PUT",
+    data: {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      tele: document.getElementById("tele").value,
+      add1: document.getElementById("add1").value,
+      add2: document.getElementById("add2").value,
+      city: document.getElementById("city").value,
+      country: document.getElementById("country").value,
+      state: document.getElementById("state").value,
+      postalCode: document.getElementById("postalCode").value
+    },
+    success: function(response) {
+      console.log(response);
+      window.location.href = "/admin-dashboard";
+    }
+  }).error(function(err) {
+    console.log(err);
+    window.location.href = "/admin-dashboard";
+  });
 }
 
 function deleteUser(userId) {

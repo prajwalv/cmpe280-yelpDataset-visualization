@@ -11,24 +11,25 @@
 </head>
 <body>
 
-  <nav class="menu" tabindex="0" id="navbar">
-    <div class="smartphone-menu-trigger"></div>
-    <header class="avatar">
-      <img src="ollie_ward2.jpg" />
-      <h2><%= user %></h2>
-    </header>
-    <ul>
-      <li tabindex="0" class="icon-dashboard"><span>Dashboard</span></li>
-      <li tabindex="0" class="icon-customers"><span>Profile</span></li>
-      <li tabindex="0" class="icon-users"><span>Insights</span></li>
-      <li tabindex="0" class="icon-settings"><span>Settings</span></li>
-      <li tabindex="0" class="icon-settings"><a href="/logout">Logout</a></li>
-      <li tabindex="0" class="icon-settings"><span>
-          Theme <input type="color" value="#ff0000" id="colorWell">
-        </span>
-      </li>
-    </ul>
-  </nav>
+    <nav class="menu" tabindex="0" id="navbar" style="width:100ox">
+        <div class="smartphone-menu-trigger"></div>
+        <header class="avatar">
+          <img src="restaurant.jpg" />
+          <h2><%= user %></h2>
+        </header>
+        <ul id="selectable">
+          <li tabindex="0" class="ui-widget-content selectable-li">Manage Users</li>
+          <li tabindex="0" class="ui-widget-content selectable-li">Add Users</li>
+          <li tabindex="4" class="ui-widget-content selectable-li">
+            <a class="a-selectable" href="/logout">Logout</a>
+          </li>
+          <li tabindex="5" class="ui-widget-content selectable-li icon-settings ">
+            <span class="selectable-span">
+              Theme <input type="color" value="#ff0000" id="colorWell" />
+            </span>
+          </li>
+          </ul>
+      </nav>
 
 <form action="/user-dashboard" method="post" id="myform">
   

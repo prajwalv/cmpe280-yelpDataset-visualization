@@ -295,3 +295,42 @@ function populateCountries(countryElementId, stateElementId){
 		};
 	}
 }
+
+function populateCountriesUser(countryElementId, stateElementId, selectedCountry, selectedState){
+	console.log("Countryyyyyyyy: " + selectedCountry);
+	// given the id of the <select> tag as function argument, it inserts <option> tags
+	var countryElement = document.getElementById(countryElementId);
+	countryElement.length=0;
+	countryElement.options[0] = new Option('Select Country','-1');
+
+	for (var i=0; i<country_arr.length; i++) {
+		countryElement.options[countryElement.length] = new Option(country_arr[i],country_arr[i]);
+	}
+	countryElement.selectedIndex = country_arr.indexOf(selectedCountry) + 1;
+
+	// Assigned all countries. Now assign event listener for the states.
+	populateStatesUser( countryElementId, stateElementId, selectedState );
+	if( stateElementId ){
+		countryElement.onchange = function(){
+			populateStatesUser( countryElementId, stateElementId, selectedState );
+		};
+	}
+}
+
+function populateStatesUser( countryElementId, stateElementId, selectedState ){
+	var selectedCountryIndex = document.getElementById( countryElementId ).selectedIndex;
+
+	var stateElement = document.getElementById( stateElementId );
+	
+	stateElement.length=0;	// Fixed by Julian Woods
+	stateElement.options[0] = new Option('Select State','');
+	
+	
+	var state_arr = s_a[selectedCountryIndex].split("|");
+	
+	for (var i=0; i<state_arr.length; i++) {
+		stateElement.options[stateElement.length] = new Option(state_arr[i],state_arr[i]);
+	}
+	var stateIndex = state_arr.indexOf(selectedState);
+	stateElement.selectedIndex = stateIndex + 1;
+}

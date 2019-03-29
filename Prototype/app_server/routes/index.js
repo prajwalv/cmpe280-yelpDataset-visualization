@@ -78,6 +78,13 @@ router.get("/admin-dashboard", [
   modelMain.get_admin_dashboard
 ]);
 
+/* Get user details */
 router.get("/user/:id", [ctrlMain.loggedIn, modelMain.get_user]);
+
+/* Get add user page */
+router.get("/user", [ctrlMain.loggedIn, ctrlMain.get_add_user]);
+
+/* Add new user */
+router.post("/user", [ctrlMain.loggedIn, modelMain.add_user]);
 
 module.exports = router;

@@ -233,3 +233,8 @@ module.exports.post_business_dashboard = function(request, result) {
 module.exports.get_graphs = function(request, result) {
   result.render("graphs.html");
 };
+
+/* Get add user page */
+module.exports.get_add_user = function(request, result) {
+  result.render("add_user.html", {user: map.get(request.session.user).name});
+};

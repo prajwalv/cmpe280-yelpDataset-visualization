@@ -36,7 +36,7 @@
   <input type="search" id="search_user" onkeyup="search_users()" placeholder="Search users"/>
   <ul id="user_list" class="user_list">
     <% for(let i = 0; i < userList.length; i++) { %>
-        <li><a href="#"><%= userList[i].name %></a></li>
+        <li><a href="/user/<%= userList[i].id %>" ><%= userList[i].name %></a></li>
     <% } %>
   </ul>
 </form>

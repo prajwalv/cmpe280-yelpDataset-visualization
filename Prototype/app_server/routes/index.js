@@ -78,6 +78,6 @@ router.get("/admin-dashboard", [
   modelMain.get_admin_dashboard
 ]);
 
-router.get("/user", [ctrlMain.loggedIn, modelMain.get_user]);
+router.get("/user/:id", [ctrlMain.loggedIn, modelMain.get_user]);
 
 module.exports = router;

@@ -30,7 +30,7 @@
             </ul>
         </nav>
   
-  <form action="/user" method="post" id="myform">
+  <form id="myform" action="/user" method="POST">
     
     <h1>Complete your profile</h1>
     
@@ -40,11 +40,6 @@
       <input name="name" type="text" value="<%= profile.name %>"/>
       <label for="email">Email:</label>
       <input name="email" type="email" value="<%= profile.email %>">
-      <label for="dob">Date of Birth:</label>
-      <input type="date" 
-      id="dob" name="dob" min="1980-12-31" max="2050-12-31" 
-      required title="Must be between 1980-12-31 and 2050-12-31"
-      value="<%= profile.dob %>">
       
       <label>Gender:</label>
       <input type="radio" id="gender" value="Male" name="gender" required><label for="gender" class="light">Male</label>
@@ -80,7 +75,7 @@
       </select>
           
       <script language="javascript">
-          populateCountries("country", "state");
+          populateCountriesUser("country", "state", "<%= profile.country %>", "<%= profile.state %>");
       </script>
 
       <label for="postalCode">Postal Code:</label>
@@ -91,8 +86,10 @@
     </fieldset>
     
    
-    <button id="update" type="submit" >Update</button>
-    <button id="delete" type="submit" >Delete</button>
+    <button id="update" type="submit" formaction="/user/<%= profile.id %>" formmethod="PUT">
+      Update</button>
+    <button id="delete" type="submit" formaction="/user/<%= profile.id %>" formmethod="DELETE">
+      Delete</button>
   </form>
   
   

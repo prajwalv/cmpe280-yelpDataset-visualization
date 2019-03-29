@@ -36,7 +36,9 @@
     
     <fieldset> 
       <legend><span class="number">1</span>Your basic info</legend>
+      <label for="name">Name:</label>
       <input name="name" type="text" value="<%= profile.name %>"/>
+      <label for="email">Email:</label>
       <input name="email" type="email" value="<%= profile.email %>">
       <label for="dob">Date of Birth:</label>
       <input type="date" 
@@ -71,14 +73,16 @@
       <label for="country">Country:</label>
       <select name="country" id="country"  value="<%= profile.country %>" required>
       </select>
-      <script language="javascript">
-          populateCountries("country", "state");
-      </script>
+      
       
       <label for="state">State:</label>
       <select  name="state" id="state"  value="<%= profile.state %>" required>
       </select>
           
+      <script language="javascript">
+          populateCountries("country", "state");
+      </script>
+
       <label for="postalCode">Postal Code:</label>
       <input type="text" id="postalCode" name="postalCode" 
       pattern="^[0-9]{5}(?:-[0-9]{4})?$" required title="Postal code should conatin only numbers of length 5" 
@@ -87,7 +91,8 @@
     </fieldset>
     
    
-    <button type="submit">Save</button>
+    <button id="update" type="submit" >Update</button>
+    <button id="delete" type="submit" >Delete</button>
   </form>
   
   

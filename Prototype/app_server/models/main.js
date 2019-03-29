@@ -11,7 +11,19 @@ module.exports.get_admin_dashboard = function(request, result) {
 };
 
 module.exports.get_user = function(request, result) {
-  User.findOne({ id: request.params.userId}, function(err, userData) {
+  User.findOne({ id: parseInt(request.params.userId)}, {
+      id: 1,
+      email: 1, 
+      name: 1,
+      dob: 1,
+      gender: 1,
+      tele: 1,
+      add1: 1,
+      add2: 1,
+      city: 1,
+      country: 1,
+      state: 1,
+      postalCode: 1}, function(err, userData) {
     console.log(userData);
     if (err) throw err;
     result.render("user", {
@@ -23,11 +35,9 @@ module.exports.get_user = function(request, result) {
 
 module.exports.add_user = function(request, result) {
   get_max_id().then(maxId => {
-    console.log("Here===" + maxId);
     var id = parseInt(maxId) + 1;
     User.create({
-
-     id: id,
+      id: id,
       email: request.body.email, 
       name: request.body.name,
       password: "Default@123",

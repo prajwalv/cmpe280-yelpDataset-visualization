@@ -281,3 +281,35 @@ a {
   transition: all 0.35s linear;
   cursor: pointer;
 }
+
+#selectable .ui-selecting {
+  background: #feca40;
+}
+#selectable .ui-selected {
+  background: white;
+  color: #3ac162;
+}
+.selectable-li {
+  background: rgb(62, 168, 94);
+  color: white;
+  border: none;
+  font-size: 22px;
+  font-weight: regular;
+}
+.selectable-li a {
+  background: rgb(62, 168, 94);
+  color: white;
+  border: none;
+  font-size: 20px;
+}
+
+.selectable-li span input {
+  background: rgb(62, 168, 94);
+  color: white;
+  border: none;
+  font-size: 20px;
+}
+#selectable .ui-selected .a-selected {
+  background: white;
+  color: #3ac162;
+}

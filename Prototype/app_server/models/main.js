@@ -22,40 +22,27 @@ module.exports.get_user = function(request, result) {
 };
 
 module.exports.add_user = function(request, result) {
-  var email = request.body.email;
-  var name = request.body.name;
-  var password = "Default@123";
-  var role = "role";
-  var dob = request.body.dob;
-  var gender = request.body.gender;
-  var tele = request.body.tele;
-  var add1 = request.body.add1;
-  var add2 = request.body.add2;
-  var city = request.body.city;
-  var country = request.body.country;
-  var state = request.body.state;
-  var postalCode = request.body.postalCode;
-  var createdBy = request.session.user;
-  var isActive = true;
   get_max_id().then(maxId => {
+    console.log("Here===" + maxId);
+    var id = parseInt(maxId) + 1;
     User.create({
 
-     id: { $inc: { maxId: 1 } },
-      email: email, 
-      name: name,
-      password: password,
-      role: role,
-      dob: dob,
-      gender: gender,
-      tele: tele,
-      add1: add1,
-      add2: add2,
-      city: city,
-      country: country,
-      state: state,
-      postalCode: postalCode,
-      createdBy: createdBy,
-      isActive: isActive
+     id: id,
+      email: request.body.email, 
+      name: request.body.name,
+      password: "Default@123",
+      role: "user",
+      dob: request.body.dob,
+      gender: request.body.gender,
+      tele: request.body.tele,
+      add1: request.body.add1,
+      add2: request.body.add2,
+      city: request.body.city,
+      country: request.body.country,
+      state: request.body.state,
+      postalCode: request.body.postalCode,
+      createdBy: request.session.user,
+      isActive: true
 
     }, function(err, userData) {
       console.log(userData);
@@ -69,13 +56,14 @@ module.exports.add_user = function(request, result) {
     return new Promise((resolve, reject) => {
       User.findOne().sort({
         "id": -1
-    }, function(err, dat) {
+    })
+    .exec( function(err, dat) {
         if (err) {
           reject(500);
         }
         resolve(dat.id);
       }
-      );
+    )
     });
   }
 

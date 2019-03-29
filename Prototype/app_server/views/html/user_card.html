@@ -1,0 +1,52 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="/dashboard/user_profile.css" />
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel='icon' href='favicon.png' type='image/x-icon'/>
+  </head>
+  <body>
+  
+      <nav class="menu" tabindex="0" id="navbar" style="width:100ox">
+          <div class="smartphone-menu-trigger"></div>
+          <header class="avatar">
+            <img src="restaurant.jpg" />
+            <h2><%= profile.name %></h2>
+          </header>
+          <ul id="selectable">
+            <li tabindex="0" class="ui-widget-content selectable-li">Manage Users</li>
+            <li tabindex="0" class="ui-widget-content selectable-li">Add Users</li>
+            <li tabindex="4" class="ui-widget-content selectable-li">
+              <a class="a-selectable" href="/logout">Logout</a>
+            </li>
+            <li tabindex="5" class="ui-widget-content selectable-li icon-settings ">
+              <span class="selectable-span">
+                Theme <input type="color" value="#ff0000" id="colorWell" />
+              </span>
+            </li>
+            </ul>
+        </nav>
+      
+      <div id="user-card" class="business-card">
+              <p class="business-item">Name: <%= profile.name %></p>
+              <p class="business-item">Date of birth: <%= profile.dob %></p>
+              <p class="business-item">Gender: <%= profile.gender %></p>
+      </div>
+      <div id="address-card" class="address-card">
+              <p class="business-item">Address: <%= profile.add1  %></p>
+              <p class="business-item">Country: <%= profile.country %></p>
+              <p class="business-item">State: <%= profile.state %></p>
+              <p class="business-item">City: <%= profile.city %></p>
+              <p class="business-item">Pin: <%= profile.postalCode %></p> 
+      </div>
+      <div id="contact-card" class="contact-card">
+              <p class="business-item">Phone: <%= profile.tele %></p>
+              <p class="business-item">Email: <%= email %></p>
+      </div>
+      
+  </body>
+  </html>

@@ -1,12 +1,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" type="text/css" href="/dashboard/user_profile.css" />
+    <title>Complete your profile</title>
+    <link rel="stylesheet" type="text/css" href="dashboard/user_profile.css" />
     <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="css/profile.css">
+    <script type= "text/javascript" src = "countries.js"></script>
+    <script type= "text/javascript" src = "user-dashboard.js"></script>
+    
     <link rel='icon' href='favicon.png' type='image/x-icon'/>
   </head>
   <body>
@@ -15,7 +15,6 @@
           <div class="smartphone-menu-trigger"></div>
           <header class="avatar">
             <img src="restaurant.jpg" />
-            <h2><%= profile.name %></h2>
           </header>
           <ul id="selectable">
             <li tabindex="0" class="ui-widget-content selectable-li">Manage Users</li>
@@ -30,23 +29,67 @@
             </li>
             </ul>
         </nav>
+  
+  <form action="/user" method="post" id="myform">
+    
+    <h1>Complete your profile</h1>
+    
+    <fieldset> 
+      <legend><span class="number">1</span>Your basic info</legend>
+      <input name="name" type="text" value="<%= profile.name %>"/>
+      <input name="email" type="email" value="<%= profile.email %>">
+      <label for="dob">Date of Birth:</label>
+      <input type="date" 
+      id="dob" name="dob" min="1980-12-31" max="2050-12-31" 
+      required title="Must be between 1980-12-31 and 2050-12-31"
+      value="<%= profile.dob %>">
       
-      <div id="user-card" class="business-card">
-              <p class="business-item">Name: <%= profile.name %></p>
-              <p class="business-item">Date of birth: <%= profile.dob %></p>
-              <p class="business-item">Gender: <%= profile.gender %></p>
-      </div>
-      <div id="address-card" class="address-card">
-              <p class="business-item">Address: <%= profile.add1  %></p>
-              <p class="business-item">Country: <%= profile.country %></p>
-              <p class="business-item">State: <%= profile.state %></p>
-              <p class="business-item">City: <%= profile.city %></p>
-              <p class="business-item">Pin: <%= profile.postalCode %></p> 
-      </div>
-      <div id="contact-card" class="contact-card">
-              <p class="business-item">Phone: <%= profile.tele %></p>
-              <p class="business-item">Email: <%= email %></p>
-      </div>
+      <label>Gender:</label>
+      <input type="radio" id="gender" value="Male" name="gender" required><label for="gender" class="light">Male</label>
+      <input type="radio" id="gender" value="Female" name="gender"><label for="gender" class="light">Female</label>
+      <input type="radio" id="gender" value="Other" name="gender"><label for="gender" class="light">Other</label>
+  
+      <br><br><label for="tele">Phone No:</label>
+      <input type="tel" id="tele" name="tele" placeholder="1234567890"
+      pattern= '^[0-9]{3}[0-9]{3}[0-9]{4}$' required title="Must be of the format 1234567890" 
+      value="<%= profile.tele %>"/>
+      <div class="input-validation"></div>
+    </fieldset>
+    
+    <fieldset>
+      <legend><span class="number">2</span>Address</legend>
+      <label for="add1">Address Line 1:</label>
+      <input type="text" id="add1" name="add1"  value="<%= profile.add1 %>" required>
+  
+      <label for="add2">Address Line 2(optional):</label>
+      <input type="text" id="add2" name="add2"  value="<%= profile.add2 %>" title="Apt #">
+        
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city"  value="<%= profile.city %>" required>
+      </select>
+  
+      <label for="country">Country:</label>
+      <select name="country" id="country"  value="<%= profile.country %>" required>
+      </select>
+      <script language="javascript">
+          populateCountries("country", "state");
+      </script>
       
+      <label for="state">State:</label>
+      <select  name="state" id="state"  value="<%= profile.state %>" required>
+      </select>
+          
+      <label for="postalCode">Postal Code:</label>
+      <input type="text" id="postalCode" name="postalCode" 
+      pattern="^[0-9]{5}(?:-[0-9]{4})?$" required title="Postal code should conatin only numbers of length 5" 
+      value="<%= profile.postalCode %>">
+      <div class="input-validation-postal"></div>
+    </fieldset>
+    
+   
+    <button type="submit">Save</button>
+  </form>
+  
+  
   </body>
   </html>

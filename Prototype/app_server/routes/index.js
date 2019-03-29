@@ -79,7 +79,7 @@ router.get("/admin-dashboard", [
 ]);
 
 /* Get user details */
-router.get("/user/:id", [ctrlMain.loggedIn, modelMain.get_user]);
+router.get("/user/:userId", [ctrlMain.loggedIn, modelMain.get_user]);
 
 /* Get add user page */
 router.get("/user", [ctrlMain.loggedIn, ctrlMain.get_add_user]);

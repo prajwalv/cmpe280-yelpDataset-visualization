@@ -11,7 +11,7 @@ module.exports.get_admin_dashboard = function(request, result) {
 };
 
 module.exports.get_user = function(request, result) {
-  User.findOne({ id: request.params.id}, function(err, userData) {
+  User.findOne({ id: request.params.userId}, function(err, userData) {
     console.log(userData);
     if (err) throw err;
     result.render("user", {

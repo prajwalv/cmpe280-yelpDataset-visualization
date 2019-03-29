@@ -33,20 +33,20 @@
 <form action="/" method="post">
 
   <h2 class="title-center">Users</h2>
-
   <input type="search" id="search_user" onkeyup="search_users()" placeholder="Search users"/>
-  <ul id="user_list">
-    <li><a href="#">User 1</a></li>
-    <li><a href="#">Alex</a></li>
-    <li><a href="#">Bob</a></li>
-    <li><a href="#">Carl</a></li>
-    <li><a href="#">Dobby</a></li>
-    <li><a href="#">Ele</a></li>
-    <li><a href="#">Fanny</a></li>
-    <li><a href="#">George</a></li>
-    <li><a href="#">Hannah</a></li>
+  <ul id="user_list" class="user_list">
+    <% for(let i = 0; i < userList.length; i++) { %>
+        <li><a href="#"><%= userList[i].name %></a></li>
+    <% } %>
   </ul>
 </form>
 
+<script>
+  let ul = $('ul.user_list');
+let count = userList.length; 
+for(let i = 0; i < count; i++) {
+  ul.append('<li><a href="#">' + userList[i].name + '</a></li>');
+}
+</script>
 </body>
 </html>

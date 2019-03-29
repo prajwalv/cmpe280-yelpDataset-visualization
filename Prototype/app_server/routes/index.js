@@ -87,4 +87,10 @@ router.get("/user", [ctrlMain.loggedIn, ctrlMain.get_add_user]);
 /* Add new user */
 router.post("/user", [ctrlMain.loggedIn, modelMain.add_user]);
 
+/* Update user details*/
+router.post("/user/:userId", [ctrlMain.loggedIn, modelMain.update_user]);
+
+/* Delete user details*/
+router.post("/user/:userId", [ctrlMain.loggedIn, modelMain.delete_user]);
+
 module.exports = router;

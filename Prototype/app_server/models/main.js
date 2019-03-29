@@ -62,6 +62,32 @@ module.exports.add_user = function(request, result) {
   });
 };
 
+module.exports.update_user = function(request, result) {
+  User.update({ id: parseInt(request.params.userId)}, {
+      email: request.body.email, 
+      name: request.body.name,
+      dob: request.body.dob,
+      gender: request.body.gender,
+      tele: request.body.tele,
+      add1: request.body.add1,
+      add2: request.body.add2,
+      city: request.body.city,
+      country: request.body.country,
+      state: request.body.state,
+      postalCode: request.body.postalCode
+      }, function(err, userData) {
+    if (err) throw err;
+    result.redirect("/admin-dashboard")
+  });
+};
+
+module.exports.delete_user = function(request, result) {
+  User.deleteOne({ id: parseInt(request.params.userId)}, function(err, dat) {
+    if (err) throw err;
+    result.redirect("/admin-dashboard")
+  });
+};
+
   function get_max_id() {
     return new Promise((resolve, reject) => {
       User.findOne().sort({

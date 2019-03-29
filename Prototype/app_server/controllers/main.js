@@ -65,13 +65,16 @@ module.exports.post_login = function(request, result) {
   var password = request.body.password;
   if (map.has(email) && map.get(email).password === password) {
     var role = map.get(email).role;
-    if (role == "user" || role == "admin") {
+    if (role == "user") {
       request.session.user = email;
       if (profileMap.has(email)) {
         result.redirect("/profile");
       } else {
         result.redirect("/user-dashboard");
       }
+    } else if (role == "admin") {
+      request.session.user = email
+      result.redirect("/admin-dashboard");
     } else {
       request.session.user = email;
       if (profileMap.has(email)) {

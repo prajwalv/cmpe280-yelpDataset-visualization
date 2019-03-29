@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var ctrlMain = require("../controllers/main");
+var modelMain = require("../models/main");
 
 /*
  * GET home page.
@@ -66,7 +67,7 @@ router.post("/business-dashboard", [
  */
 router.get("/admin-dashboard", [
   ctrlMain.loggedIn,
-  ctrlMain.get_admin_dashboard
+  modelMain.get_admin_dashboard
 ]);
 
 /*

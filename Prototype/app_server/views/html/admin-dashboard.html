@@ -19,11 +19,11 @@
         </header>
         <ul id="selectable">
           <li tabindex="0" class="ui-widget-content selectable-li">Manage Users</li>
-          <li tabindex="0" class="ui-widget-content selectable-li"><a href="/user">Add Users</a></li>
-          <li tabindex="4" class="ui-widget-content selectable-li">
+          <li tabindex="1" class="ui-widget-content selectable-li"><a class="a-selectable" href="/user">Add Users</a></li>
+          <li tabindex="2" class="ui-widget-content selectable-li">
             <a class="a-selectable" href="/logout">Logout</a>
           </li>
-          <li tabindex="5" class="ui-widget-content selectable-li icon-settings ">
+          <li tabindex="3" class="ui-widget-content selectable-li icon-settings ">
             <span class="selectable-span">
               Theme <input type="color" value="#ff0000" id="colorWell" />
             </span>
@@ -40,13 +40,5 @@
     <% } %>
   </ul>
 </form>
-
-<script>
-  let ul = $('ul.user_list');
-let count = userList.length; 
-for(let i = 0; i < count; i++) {
-  ul.append('<li><a href="#">' + userList[i].name + '</a></li>');
-}
-</script>
 </body>
 </html>

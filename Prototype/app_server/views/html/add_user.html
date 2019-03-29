@@ -1,11 +1,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Complete your profile</title>
+  <title>Create new User</title>
   <link rel="stylesheet" type="text/css" href="dashboard/user_profile.css" />
   <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-  <script type= "text/javascript" src = "countries.js"></script>
-  <script type= "text/javascript" src = "user-dashboard.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type= "text/javascript" src = "/countries.js"></script>
+    <script type= "text/javascript" src = "/user.js"></script>
+    <link rel="stylesheet" href="/dashboard/business-dashboard.css">
   
   <link rel='icon' href='favicon.png' type='image/x-icon'/>
 </head>
@@ -18,12 +21,12 @@
           <h2><%= user %></h2>
         </header>
         <ul id="selectable">
-          <li tabindex="0" class="ui-widget-content selectable-li">Manage Users</li>
-          <li tabindex="0" class="ui-widget-content selectable-li">Add Users</li>
-          <li tabindex="4" class="ui-widget-content selectable-li">
+          <li tabindex="0" class="ui-widget-content selectable-li"><a class="a-selectable" href="/admin-dashboard">Manage Users</a></li>
+          <li tabindex="1" class="ui-widget-content selectable-li">Add Users</li>
+          <li tabindex="2" class="ui-widget-content selectable-li">
             <a class="a-selectable" href="/logout">Logout</a>
           </li>
-          <li tabindex="5" class="ui-widget-content selectable-li icon-settings ">
+          <li tabindex="4" class="ui-widget-content selectable-li icon-settings ">
             <span class="selectable-span">
               Theme <input type="color" value="#ff0000" id="colorWell" />
             </span>
@@ -33,11 +36,13 @@
 
 <form action="/user" method="post" id="myform">
   
-  <h1>Complete your profile</h1>
+  <h1>Create new User</h1>
   
   <fieldset> 
-    <legend><span class="number">1</span>Your basic info</legend>
+    <legend><span class="number">1</span>Basic info</legend>
+    <label for="name">Name:</label>
     <input name="name" type="text"/>
+    <label for="email">Email:</label>
     <input name="email" type="email">
     <label for="dob">Date of Birth:</label>
     <input type="date" id="dob" name="dob" min="1980-12-31" max="2050-12-31" required title="Must be between 1980-12-31 and 2050-12-31">

@@ -315,8 +315,7 @@ input[type="tel"]:invalid {
   font-size: 22px;
 }
 
-
-a.side-bar-menu{
+a.side-bar-menu {
   background: rgb(62, 168, 94);
   color: white;
   border: none;
@@ -330,3 +329,11 @@ a.side-bar-menu{
   text-decoration: none;
 }
 
+.userList {
+  text-decoration: none;
+  text-align: left;
+  color: rgb(62, 168, 94);
+  font-size: 18px;
+  text-transform: capitalize;
+  text-shadow: 0px -1px 0px grey;
+}

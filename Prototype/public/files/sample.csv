@@ -1,5 +1,5 @@
 id,name,email,password,role,dob,gender,tele,add1,add2,city,country,state,postalCode,createdBy,isActive
-1,John,John@gmail.com,Default@123,user,01-12-1990,Male,1234567890,AbC street,100,SAN Jose,USA,California,12345,useadminr,true
+1,John,John@gmail.com,Default@123,user,01-12-1990,Male,1234567890,AbC street,100,SAN Jose,USA,California,12345,admin,true
 2,Dave,Dave@gmail.com,Default@123,user,13-02-1978,Male,1234567890,AbC street,102,SAN Mateo,USA,Alabama,34556,admin,true
 3,Anna,Anna@gmail.com,Default@123,user,12-12-2002,Female,1234567890,AbC street,103,Warburton,USA,Colorado,34766,admin,true
 4,James,James@gmail.com,Default@123,user,11-02-2010,Male,1234567890,AbC street,104,SAN fleming,USA,Ohio,12345,98744,false

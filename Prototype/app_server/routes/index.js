@@ -93,6 +93,6 @@ router.put("/user/:userId", [ctrlMain.loggedIn, modelMain.update_user]);
 router.delete("/user/:userId", [ctrlMain.loggedIn, modelMain.delete_user]);
 
 /* Delete user details*/
-router.get("/load", [ctrlMain.loggedIn, ctrlMain.load_users]);
+router.get("/load", [ctrlMain.loggedIn, modelMain.load_users]);
 
 module.exports = router;

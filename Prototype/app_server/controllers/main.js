@@ -73,7 +73,7 @@ module.exports.post_login = function(request, result) {
         result.redirect("/user-dashboard");
       }
     } else if (role == "admin") {
-      request.session.user = email
+      request.session.user = email;
       result.redirect("/admin-dashboard");
     } else {
       request.session.user = email;
@@ -239,33 +239,5 @@ module.exports.get_graphs = function(request, result) {
 
 /* Get add user page */
 module.exports.get_add_user = function(request, result) {
-  result.render("add_user.html", {user: map.get(request.session.user).name});
+  result.render("add_user.html", { user: map.get(request.session.user).name });
 };
-
-module.exports.load_users = function() {
-  const fs = require('fs');
-  const csv = require('csv-parser'); 
-  var User = require("../models/user");
-
-  var mongoose = require('mongoose');
-   
-    var path = './public/files/sample.csv';
-   
-      var users = [];
-      fs.createReadStream(path)
-      // .pipe(csv())
-       .on("data", function(data){
-          // console.log(data);
-           users.push(data);
-           console.log(users);
-       })
-       .on("end", function(){
-           User.create(users, function(err, documents) {
-              if (err) throw err;
-           });
-            
-          //  res.send(users.length + ' authors have been successfully uploaded.');
-       });
-  };
-    
- 

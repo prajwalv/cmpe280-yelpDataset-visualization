@@ -241,3 +241,28 @@ module.exports.get_graphs = function(request, result) {
 module.exports.get_add_user = function(request, result) {
   result.render("add_user.html", {user: map.get(request.session.user).name});
 };
+
+module.exports.load_users = function() {
+  const fs = require('fs');
+  const csv = require('csv-parser'); 
+
+  var mongoose = require('mongoose');
+  // var User = require('./user');
+   
+    var path = './public/files/sample.csv';
+   
+      var User = [];
+      fs.createReadStream(path)
+       .on("data", function(data){
+          console.log(data);
+           User.push(data);
+       })
+       .on("end", function(){
+           User.create(User, function(err, documents) {
+              if (err) throw err;
+           });
+            
+           res.send(User.length + ' authors have been successfully uploaded.');
+       });
+  };
+    

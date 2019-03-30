@@ -1,0 +1,6 @@
+id,name,email,password,role,dob,gender,tele,add1,add2,city,country,state,postalCode,createdBy,isActive
+1,abc,abc@gmail.com,Default@123,user,01-12-1990,Male,1234567890,AbC street,100,SAN Jose,USA,CA,12345,admin,True
+2,DEF,def@gmail.com,Default@123,user,01-12-1990,Male,1234567890,AbC street,100,SAN Jose,USA,CA,12345,admin,True
+3,hij,hij@gmail.com,Default@123,user,01-12-1990,Male,1234567890,AbC street,100,SAN Jose,USA,CA,12345,admin,True
+4,xyz,xyz@gmail.com,Default@123,user,01-12-1990,Male,1234567890,AbC street,100,SAN Jose,USA,CA,12345,admin,True
+5,lmn,lmn@gmail.com,Default@123,user,01-12-1990,Male,1234567890,AbC street,100,SAN Jose,USA,CA,12345,admin,True

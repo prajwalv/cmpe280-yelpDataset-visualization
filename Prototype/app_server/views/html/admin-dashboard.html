@@ -8,6 +8,7 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script type= "text/javascript" src = "countries.js"></script>
   <script type= "text/javascript" src = "admin-dashboard.js"></script>
+
   <link rel='icon' href='favicon.png' type='image/x-icon'/>
 </head>
 <body>
@@ -20,6 +21,7 @@
         <ul id="selectable">
           <li tabindex="0" class="ui-widget-content selectable-li">Manage Users</li>
           <li tabindex="1" class="ui-widget-content selectable-li"><a class="a-selectable" href="/user">Add Users</a></li>
+          <li tabindex="4" class="ui-widget-content selectable-li"><a class="a-selectable" href="/load">Load Users</a></li>
           <li tabindex="2" class="ui-widget-content selectable-li">
             <a class="a-selectable" href="/logout">Logout</a>
           </li>
@@ -30,10 +32,12 @@
           </li>
           </ul>
       </nav>
+
 <form action="/" method="post">
 
   <h2 class="title-center">Users</h2>
   <input type="search" id="search_user" onkeyup="search_users()" placeholder="Search users"/>
+
 
   <ul id="user_list" class="user_list">
     <% for(let i = 0; i < userList.length; i++) { %>

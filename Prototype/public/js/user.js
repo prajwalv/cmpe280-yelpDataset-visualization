@@ -51,6 +51,7 @@ function deleteUser(userId) {
     method: "DELETE",
     success: function(response) {
       console.log(response);
+      window.location.href = "/admin-dashboard";
     }
   }).error(function(err) {
     console.log(err);

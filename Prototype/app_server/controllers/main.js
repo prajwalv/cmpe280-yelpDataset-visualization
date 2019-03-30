@@ -253,7 +253,7 @@ module.exports.load_users = function() {
    
       var users = [];
       fs.createReadStream(path)
-      .pipe(csv())
+      // .pipe(csv())
        .on("data", function(data){
           // console.log(data);
            users.push(data);

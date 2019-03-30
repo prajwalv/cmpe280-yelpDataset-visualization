@@ -113,16 +113,3 @@ function get_max_id() {
   });
 }
 
-
-module.exports.load_users = function(request, result) {
-  const fs = require('fs');
-  const path = 'sample.csv';
-  try {
-    if (fs.existsSync(path)) {
-      //file exist
-      console.log("File present");
-    }
-  } catch(err) {
-    console.error(err)
-  }
-};

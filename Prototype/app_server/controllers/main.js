@@ -245,25 +245,27 @@ module.exports.get_add_user = function(request, result) {
 module.exports.load_users = function() {
   const fs = require('fs');
   const csv = require('csv-parser'); 
+  var User = require("../models/user");
 
   var mongoose = require('mongoose');
-  // var User = require('./user');
    
     var path = './public/files/sample.csv';
    
-      var User = [];
+      var users = [];
       fs.createReadStream(path)
       .pipe(csv())
        .on("data", function(data){
-          console.log(data);
-           User.push(data);
+          // console.log(data);
+           users.push(data);
+           console.log(users);
        })
        .on("end", function(){
-           User.create(User, function(err, documents) {
+           User.create(users, function(err, documents) {
               if (err) throw err;
            });
             
-           res.send(User.length + ' authors have been successfully uploaded.');
+          //  res.send(users.length + ' authors have been successfully uploaded.');
        });
   };
     
+ 
